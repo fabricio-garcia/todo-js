@@ -1,32 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-			name="viewport"
-		/>
-		<meta content="ie=edge" http-equiv="X-UA-Compatible" />
-		<title>Todo List</title>
-	</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
+    />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <title>Todo List</title>
+  </head>
 
-	<body>
-		<h1 class="title">Todo List</h1>
-		<div class="todos">
-			<h2 class="todos-list-title">Todos</h2>
-			<ul class="todos-tasks">
-				<li class="active-todo">Example</li>
-			</ul>
-		</div>
-		<form action="">
-			<input
-				type="text"
-				class="new-todo"
-				placeholder="new todo name"
-				aria-label="new todo name"
-			/>
-			<button class="btn todo" aria-label="create new todo">+</button>
-		</form>
-		<div class="todo-list"></div>
-	</body>
+  <body>
+    <h1 class="title">Todo List</h1>
+    <div class="todos">
+      <h2 class="todos-list-title">To Do List</h2>
+      <ul class="todos-tasks">
+        <li class="active-todo">Example To Do</li>
+      </ul>
+    </div>
+    <form action="">
+      <input
+        type="text"
+        class="new-todo"
+        placeholder="new todo name"
+        aria-label="new todo name"
+      />
+      <button class="btn todo" aria-label="create new todo">+</button>
+    </form>
+    <div class="todo-tasks">
+      <div class="todo-header">
+        <h2 class="todo-title">Example To Do</h2>
+        <p class="task-count">3 tasks remaining</p>
+        <input type="date" aria-label="todo due date" />
+        <select
+          id="priority"
+          name="priority"
+          required=""
+          aria-label="todo priority"
+        >
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+      </div>
+      <div class="todo-body">
+        <div class="tasks">
+          <input type="checkbox" id="task-1" />
+          <label for="task-1"
+            ><span class="custom-checkbox"></span>example task 1</label
+          >
+          <input type="checkbox" id="task-2" />
+          <label for="task-2"
+            ><span class="custom-checkbox"></span>example task 1</label
+          >
+          <input type="checkbox" id="task-3" />
+          <label for="task-3"
+            ><span class="custom-checkbox"></span>example task 1</label
+          >
+        </div>
+        <div class="new-task">
+          <form action="">
+            <input
+              type="text"
+              class="new list"
+              placeholder="create new task"
+              aria-label="create new task"
+            />
+            <button class="btn task" aria-label="create new task">+</button>
+          </form>
+        </div>
+        <div class="delete-tasks">
+          <button class="btn delete">Clear completed task</button>
+          <button class="btn delete">Delete list</button>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

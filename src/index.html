@@ -8,25 +8,26 @@
     />
     <meta content="ie=edge" http-equiv="X-UA-Compatible" />
     <title>Todo List</title>
+    <link rel="stylesheet" href="css/main.css" />
   </head>
 
   <body>
     <h1 class="title">Todo List</h1>
     <div class="todos">
       <h2 class="todos-list-title">To Do List</h2>
-      <ul class="todos-tasks">
+      <ul class="todos-list">
         <li class="active-todo">Example To Do</li>
       </ul>
+      <form action="">
+        <input
+          type="text"
+          class="new-todo"
+          placeholder="new todo name"
+          aria-label="new todo name"
+        />
+        <button class="btn todo" aria-label="create new todo">+</button>
+      </form>
     </div>
-    <form action="">
-      <input
-        type="text"
-        class="new-todo"
-        placeholder="new todo name"
-        aria-label="new todo name"
-      />
-      <button class="btn todo" aria-label="create new todo">+</button>
-    </form>
     <div class="todo-tasks">
       <div class="todo-header">
         <h2 class="todo-title">Example To Do</h2>
@@ -45,18 +46,24 @@
       </div>
       <div class="todo-body">
         <div class="tasks">
-          <input type="checkbox" id="task-1" />
-          <label for="task-1"
-            ><span class="custom-checkbox"></span>example task 1</label
-          >
-          <input type="checkbox" id="task-2" />
-          <label for="task-2"
-            ><span class="custom-checkbox"></span>example task 1</label
-          >
-          <input type="checkbox" id="task-3" />
-          <label for="task-3"
-            ><span class="custom-checkbox"></span>example task 1</label
-          >
+          <div class="task">
+            <input type="checkbox" id="task-1" />
+            <label for="task-1"
+              ><span class="custom-checkbox"></span>example task 1</label
+            >
+          </div>
+          <div class="task">
+            <input type="checkbox" id="task-2" />
+            <label for="task-2"
+              ><span class="custom-checkbox"></span>example task 2</label
+            >
+          </div>
+          <div class="task">
+            <input type="checkbox" id="task-3" />
+            <label for="task-3"
+              ><span class="custom-checkbox"></span>example task 3</label
+            >
+          </div>
         </div>
         <div class="new-task">
           <form action="">

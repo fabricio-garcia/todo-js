@@ -72,7 +72,7 @@
 
 - Node & NPM
 
-###Run locally
+### Run locally
 
 - `npm i` - install dependencies
 - `npm start` - start development server

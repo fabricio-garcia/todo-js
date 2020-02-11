@@ -17,7 +17,7 @@
 <br />
 <p align="center">
   <a href="https://www.microverse.org/">
-    <img src="doc/microverse.png" alt="Logo" width="80" height="80">
+    <img alt="Logo" height="80" src="./src/img/microverse.png" width="80">
   </a>
 
   <h1 align="center">

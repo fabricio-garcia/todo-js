@@ -1,0 +1,41 @@
+{
+  "name": "todo-js",
+  "version": "1.0.0",
+  "description": "To Do List Web App created with JS",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabricio-garcia/todo-js.git"
+  },
+  "keywords": [
+    "todo",
+    "js",
+    "webpack"
+  ],
+  "author": "Fabricio Garcia",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/fabricio-garcia/todo-js/issues"
+  },
+  "homepage": "https://github.com/fabricio-garcia/todo-js#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

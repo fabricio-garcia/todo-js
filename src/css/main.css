@@ -1,5 +1,5 @@
 :root {
-  --clr-primary: #6610f2;
+  --clr-primary: rgb(54, 112, 199);
   --clr-light: #f4f4f4;
   --clr-dark: #333;
   --clr-warning: rgb(99, 36, 36);
@@ -28,6 +28,9 @@ body {
 
 .title {
   grid-area: header;
+  text-align: center;
+  font-size: calc(2.5vw + 2rem);
+  font-weight: 900;
 }
 
 .todos {
@@ -36,4 +39,82 @@ body {
 
 .todo-tasks {
   grid-area: active;
+}
+
+.todo-list {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  list-style: circle;
+  padding-left: 1.1em;
+}
+
+.todo-name {
+  cursor: pointer;
+}
+
+.todo-name:hover {
+  opacity: 0.5;
+}
+
+.btn {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  padding: 0;
+  color: inherit;
+}
+
+.btn.create {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-right: 0.25em;
+  transition: opacity 250ms ease-in;
+}
+
+.btn.create:hover {
+  opacity: 0.7;
+}
+
+.btn.delete {
+  opacity: 0.7;
+  font-size: 1rem;
+  transition: color 200ms;
+}
+
+.btn.delete:hover {
+  color: var(--clr-warning);
+}
+
+.new-input {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  border-bottom: 1px solid currentColor;
+  font-size: inherit;
+  outline: none;
+  padding: 0.25em;
+  transition: border-bottom 150ms ease-in;
+  order: 2;
+}
+
+.active-todo {
+  font-weight: 900;
+}
+
+form {
+  display: flex;
+}
+
+.new-input.todo {
+  font-size: 1rem;
+}
+
+#priority {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font-size: 0.75rem;
+  outline: none;
+  padding: 0.25em;
+  transition: border-bottom 150ms ease-in;
 }

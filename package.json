@@ -56,7 +56,7 @@
     "js",
     "webpack"
   ],
-  "author": "Fabricio Garcia",
+  "authors": "Fabricio Garcia, Israel Laguan",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/fabricio-garcia/todo-js/issues"
@@ -64,7 +64,7 @@
   "homepage": "https://github.com/fabricio-garcia/todo-js#readme",
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-customizable"
+      "path": "cz-conventional-changelog"
     }
   }
 }

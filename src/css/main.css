@@ -3,6 +3,7 @@
   --clr-light: #f4f4f4;
   --clr-dark: #333;
   --clr-warning: rgb(99, 36, 36);
+  --spacer: 1rem;
 }
 
 *,
@@ -35,10 +36,6 @@ body {
 
 .todos {
   grid-area: todos;
-}
-
-.todo-tasks {
-  grid-area: active;
 }
 
 .todo-list {
@@ -98,7 +95,7 @@ body {
 }
 
 .active-todo {
-  font-weight: 900;
+  font-weight: 700;
 }
 
 form {
@@ -117,4 +114,33 @@ form {
   outline: none;
   padding: 0.25em;
   transition: border-bottom 150ms ease-in;
+}
+
+.todo-tasks {
+  grid-area: active;
+  background: var(--clr-light);
+  color: var(--clr-dark);
+}
+
+.todo-title {
+  margin: 0 1em 0 0;
+}
+
+.todo-header {
+  padding: var(--spacer);
+  background: #e4e4e4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-content: stretch;
+}
+
+
+.task-count {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.todo-body {
+  padding: var(--spacer);
 }

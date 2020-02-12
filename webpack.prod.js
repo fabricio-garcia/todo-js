@@ -1,10 +1,12 @@
-const path = require('path');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const buildPath = path.resolve(__dirname, 'dist');
+const path = require('path')
+
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+
+const buildPath = path.resolve(__dirname, 'dist')
 
 module.exports = {
 
@@ -14,13 +16,15 @@ module.exports = {
 
   // https://webpack.js.org/concepts/entry-points/#multi-page-application
   entry: {
-    index: './src/js/main.js'
+    index: './src/page-index/main.js',
+    about: './src/page-about/main.js',
+    contacts: './src/page-contacts/main.js'
   },
 
   // how to write the compiled files to disk
   // https://webpack.js.org/concepts/output/
   output: {
-    filename: '[name].js',
+    filename: '[name].[hash:20].js',
     path: buildPath
   },
 
@@ -43,16 +47,18 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|svg|jpg|gif)$/i,
+        // Load all images as base64 encoding if they are smaller than 8192 bytes
+        test: /\.(png|jpe?g|gif|svg)$/i,
         use: [
-          'file-loader',
-        ],
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [
-          'file-loader',
-        ],
+          {
+            loader: 'url-loader',
+            options: {
+              name: '[name].[hash:20].[ext]',
+              esModule: false,
+              limit: 8192
+            }
+          }
+        ]
       }
     ]
   },
@@ -61,19 +67,45 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(), // cleans output.path by default
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/page-index/tmpl.html',
       inject: 'body',
       chunks: ['index'],
       filename: 'index.html'
     }),
+    new HtmlWebpackPlugin({
+      template: './src/page-about/tmpl.html',
+      inject: 'body',
+      chunks: ['about'],
+      filename: 'about.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/page-contacts/tmpl.html',
+      inject: 'body',
+      chunks: ['contacts'],
+      filename: 'contacts.html'
+    }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css'
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[id].[contenthash].css'
     })
   ],
 
   // https://webpack.js.org/configuration/optimization/
   optimization: {
+    checkWasmTypes: true,
+    chunkIds: false,
+    concatenateModules: true,
+    flagIncludedChunks: true,
+    nodeEnv: "production",
+    sideEffects: true,
+    usedExports: true,
+    splitChunks: {
+      hidePathInfo: true,
+      minSize: 30000,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3
+    },
+    noEmitOnErrors: true,
     minimize: true,
     minimizer: [
       new TerserPlugin({
@@ -82,15 +114,12 @@ module.exports = {
         sourceMap: true
       }),
       new OptimizeCssAssetsPlugin({})
-    ],
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'common',
-          chunks: 'all'
-        }
-      }
-    }
+    ]
+  },
+  performance: {
+    hints: "warning"
+  },
+  output: {
+    pathinfo: false
   }
-};
+}

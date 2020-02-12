@@ -34,22 +34,22 @@ body {
   font-weight: 900;
 }
 
-.todos {
+.projects {
   grid-area: todos;
 }
 
-.todo-list {
+.project-list {
   font-size: 1.2rem;
   line-height: 1.7;
   list-style: circle;
   padding-left: 1.1em;
 }
 
-.todo-name {
+.project-name {
   cursor: pointer;
 }
 
-.todo-name:hover {
+.project-name:hover {
   opacity: 0.5;
 }
 
@@ -94,7 +94,7 @@ body {
   order: 2;
 }
 
-.active-todo {
+.active-project {
   font-weight: 700;
 }
 
@@ -102,7 +102,7 @@ form {
   display: flex;
 }
 
-.new-input.todo {
+.new-input.project {
   font-size: 1rem;
 }
 

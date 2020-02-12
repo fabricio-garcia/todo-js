@@ -13,19 +13,19 @@
 
   <body>
     <h1 class="title">My To Do List</h1>
-    <div class="todos">
-      <h2 class="todo-list-title">Projects</h2>
-      <ul class="todo-list">
-        <li class="todo-name active-todo">Project 1</li>
-        <li class="todo-name">Project 2</li>
-        <li class="todo-name">Project 3</li>
+    <div class="projects">
+      <h2 class="project-list-title">Projects</h2>
+      <ul class="project-list">
+        <li class="project-name active-project">Project 1</li>
+        <li class="project-name">Project 2</li>
+        <li class="project-name">Project 3</li>
       </ul>
       <form action="">
         <input
           type="text"
-          class="new-input todo"
+          class="new-input project"
           placeholder="new project"
-          aria-label="new todo"
+          aria-label="new project"
         />
         <button class="btn create" aria-label="create new todo">+</button>
       </form>
@@ -44,7 +44,7 @@
                 aria-label="todo priority"
         >
           <option value="high">High</option>
-          <option value="medium">Medium</option>
+          <option value="medium" selected="selected">Normal</option>
           <option value="low">Low</option>
         </select>
       </div>

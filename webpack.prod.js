@@ -16,9 +16,9 @@ module.exports = {
 
   // https://webpack.js.org/concepts/entry-points/#multi-page-application
   entry: {
-    index: './src/page-index/main.js',
-    about: './src/page-about/main.js',
-    contacts: './src/page-contacts/main.js'
+    projects: './src/page-projects/main.js',
+    project: './src/page-project/main.js',
+    task: './src/page-task/main.js'
   },
 
   // how to write the compiled files to disk
@@ -67,26 +67,22 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(), // cleans output.path by default
     new HtmlWebpackPlugin({
-      template: './src/page-index/tmpl.html',
-      inject: 'body',
-      chunks: ['index'],
-      filename: 'index.html'
+      template: './src/page-project/tmpl.html',
+      inject: true,
+      chunks: ['project'],
+      filename: 'project.html'
     }),
     new HtmlWebpackPlugin({
-      template: './src/page-about/tmpl.html',
-      inject: 'body',
-      chunks: ['about'],
-      filename: 'about.html'
+      template: './src/page-project/tmpl.html',
+      inject: true,
+      chunks: ['project'],
+      filename: 'project.html'
     }),
     new HtmlWebpackPlugin({
-      template: './src/page-contacts/tmpl.html',
-      inject: 'body',
-      chunks: ['contacts'],
-      filename: 'contacts.html'
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
-      chunkFilename: '[id].[contenthash].css'
+      template: './src/page-task/tmpl.html',
+      inject: true,
+      chunks: ['task'],
+      filename: 'task.html'
     })
   ],
 

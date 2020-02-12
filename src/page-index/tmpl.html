@@ -14,11 +14,29 @@
 
   <%= require('html-loader!../partials/nav.html') %>
 
-  <h1 class="page-title">
-    <i class="fab fa-fort-awesome"></i>
-    HOME
-  </h1>
-
-  <%= require('html-loader!../partials/footer.html') %>
+  <main>
+    <div class="header">
+      <div class="title">Projects</div>
+      <div class="search">
+        <input type="text" placeholder="Search Project"><span><i class="fas fa-search"></i></span>
+      </div>
+    </div>
+    <div class="project-list">
+      <div class="project">
+        <figure>+</figure>
+        Add project
+      </div>
+      <div class="project">
+        <div class="card">
+          <div class="header">
+            <div class="project-title"><p>Project 1</p></div>
+            <div class="menu"></div>
+          </div>
+          <div class="description"><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto sequi, blanditiis voluptatum quis ullam similique labore inventore.</p></div>
+          <div class="progress"><progress></progress></div>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 </html>

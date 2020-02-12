@@ -9,8 +9,8 @@ module.exports = {
   // https://webpack.js.org/concepts/entry-points/#multi-page-application
   entry: {
     index: './src/page-index/main.js',
-    about: './src/page-about/main.js',
-    contacts: './src/page-contacts/main.js'
+    project: './src/page-project/main.js',
+    task: './src/page-task/main.js'
   },
 
   // https://webpack.js.org/configuration/dev-server/
@@ -65,16 +65,16 @@ module.exports = {
       filename: 'index.html'
     }),
     new HtmlWebpackPlugin({
-      template: './src/page-about/tmpl.html',
+      template: './src/page-project/tmpl.html',
       inject: true,
-      chunks: ['about'],
-      filename: 'about.html'
+      chunks: ['project'],
+      filename: 'project.html'
     }),
     new HtmlWebpackPlugin({
-      template: './src/page-contacts/tmpl.html',
+      template: './src/page-task/tmpl.html',
       inject: true,
-      chunks: ['contacts'],
-      filename: 'contacts.html'
+      chunks: ['task'],
+      filename: 'task.html'
     })
   ]
 }

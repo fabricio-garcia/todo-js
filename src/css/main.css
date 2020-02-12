@@ -126,7 +126,9 @@ form {
   margin: 0 1em 0 0;
 }
 
-.todo-header {
+.todo-header,
+.delete-tasks
+{
   padding: var(--spacer);
   background: #e4e4e4;
   display: flex;
@@ -228,11 +230,11 @@ form {
 }
 
 .delete-tasks {
-  display: flex;
-  justify-content: space-evenly;
-  position: absolute;
-  width: 100%;
-  left: 0;
-  bottom: -35px;
+  background: inherit;
+
+}
+
+.delete-project-btn {
   color: var(--clr-light);
+  background: var(--clr-warning);
 }

@@ -9,23 +9,25 @@
     <meta content="ie=edge" http-equiv="X-UA-Compatible" />
     <title>Todo List</title>
     <link rel="stylesheet" href="css/main.css" />
+    <script defer src="js/main.js"></script>
   </head>
 
   <body>
     <h1 class="title">My To Do List</h1>
     <div class="projects">
       <h2 class="project-list-title">Projects</h2>
-      <ul class="project-list">
+      <ul class="project-list" data-project-list>
         <li class="project-name active-project">Project 1</li>
         <li class="project-name">Project 2</li>
         <li class="project-name">Project 3</li>
       </ul>
-      <form action="">
+      <form action="" data-new-project-form>
         <input
           type="text"
           class="new-input project"
           placeholder="new project"
           aria-label="new project"
+          data-new-project-input
         />
         <button class="btn create" aria-label="create new todo">+</button>
       </form>

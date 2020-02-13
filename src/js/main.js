@@ -44,3 +44,7 @@ newProjectForm.addEventListener('submit', evt => {
   projects.push(project);
   saveAndRender();
 });
+
+window.addEventListener('load', () => {
+  render()
+});

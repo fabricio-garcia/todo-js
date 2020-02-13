@@ -11,8 +11,38 @@ function clearProjects(element) {
   }
 }
 
-function createProjectList(name) {
-  return { id: Date.now().toString(), name: name, tasks: [] }
+function task ( name) {
+  this.id = Date.now().toString()
+  this.state = false;
+  return {id, name, state}
+}
+
+function createProjectList(id, name, tasks) {
+  this.id = id
+  this.name = name;
+  this.tasks = tasks || [];
+  const get = (id) => this.tasks.filter(task=>task.id===id)[0]
+  const getAll = () => this.tasks
+  const add = (task) => {
+    this.tasks.push(task)
+    return this.tasks
+  }
+  const update = (id, state) => {
+    const newTasks = this.tasks.map(value=>{
+      if (value.id === id){
+        return {id: value.id, name: value.name, state}
+      }
+      return value
+    })
+    this.tasks = newTasks;
+    return this.tasks
+  }
+  const remove = (id) => {
+    const newTasks = this.tasks.filter(task=>task.id!==id);
+    this.tasks = newTasks;
+    return this.tasks
+  }
+  return { id, name, tasks: this.tasks, get, getAll, add, update, remove }
 }
 
 function saveProjectsToLocalStorage() {
@@ -39,12 +69,63 @@ newProjectForm.addEventListener('submit', evt => {
   evt.preventDefault();
   const projectName = newProjectInput.value;
   if (projectName == null || projectName === '') return;
-  const project = createProjectList(projectName);
+  const id = (Date.now()*Math.random()).toString();
+  const project = createProjectList(id, projectName);
   newProjectInput.value = null;
   projects.push(project);
   saveAndRender();
 });
 
+const addTask = (projectId, taskName) => {
+  const newProjects = projects.map(project=>{
+    if (project.id === projectId) {
+      project.add(task(taskName))
+      return project
+    }
+    return project
+  })
+  projects = newProjects
+  saveAndRender()
+}
+
+const changeTaskState = (projectId, taskId, newState) => {
+  const newProjects = projects.map(project=>{
+    if (project.id === projectId) {
+      const updatedTasks = project.update(taskId, newState)
+      const {id, name } = project
+      let newProject = createProjectList(id, name, updatedTasks)
+      return newProject
+    }
+    return project
+  })
+  projects = newProjects
+  saveAndRender()
+}
+
 window.addEventListener('load', () => {
   render()
+  // already implemented
+  // create new Project
+  const myProjectId = (Date.now()*Math.random()).toString();
+  const myProject = createProjectList(myProjectId,'Moncho');
+  projects.push(myProject)
+  saveAndRender()
+  // end of create new project
+
+  // add eventListener to each project's name, in the event we render tasks
+  // Render tasks
+
+  // Add eventListener to + button on Tasks
+  // create new task
+  addTask(myProjectId, 'Task1')
+  // end of create new task
+
+
+  // Add eventListener to checkbox on Tasks
+  // change state of task
+  const moncho = projects.filter(project=>project.id===myProjectId)[0]
+  const secondTaskId = moncho.getAll()[0].id
+  changeTaskState(myProjectId, secondTaskId, true)
+  //end of change state of task
+  console.log(projects)
 });

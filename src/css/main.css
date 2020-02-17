@@ -139,4 +139,15 @@ main .search {
 
 .description {
   color: #525650;
+  margin-bottom: 10px;
+}
+
+.progress progress {
+  border-radius: 10px;
+  width: 100%;
+}
+
+progress::-webkit-progress-bar {
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }

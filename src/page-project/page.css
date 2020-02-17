@@ -1,9 +1,7 @@
-body {
-  background-color: #3d6db4;
-}
-nav {
-  background-color: #305287;
-}
-.page-title {
-  color: white;
+
+ {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

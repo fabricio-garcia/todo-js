@@ -50,24 +50,6 @@ main {
   max-width: 1200px;
 }
 
-main .header {
-  margin: 20px 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-main .title {
-  background-color: #305287;
-  flex: 1 30%;
-  border-radius: 20px;
-  color: white;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  font-size: xx-large;
-  font-weight: 900;
-}
 
 main .search {
   max-width: 800px;
@@ -110,12 +92,16 @@ main .search {
 .card {
   background-color: white;
   border-radius: 20px;
-  padding: 10px;
+  padding: 2em;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
 
+.card-header {
+  display: flex;
+  justify-content: center;
 }
 
 .card .add-icon {
@@ -132,9 +118,21 @@ main .search {
 }
 
 .project-title {
+  flex: 1 auto;
   color: #305287;
   font-size: 1.5rem;
   font-weight: 900;
+}
+
+.card-menu {
+  flex: 1 20%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-menu div {
+  font-weight: 900;
+  color: #305287;
 }
 
 .description {
@@ -147,7 +145,45 @@ main .search {
   width: 100%;
 }
 
+.progress p {
+  text-align: center;
+  color: #305287;
+  margin-bottom: 2px;
+}
+
 progress::-webkit-progress-bar {
   border-radius: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.date-picker {
+  border: none;
+  font-weight: 900;
+  color: #305287;
+}
+
+.blue-pills{
+  margin: 20px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;;
+}
+
+.blue-pill {
+  background-color: #305287;
+  display: flex;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+  font-weight: 900;
+}
+
+.title-pill {
+  flex: 1 40%;
+}
+
+.action-pill {
+  flex: 1 60%;
 }

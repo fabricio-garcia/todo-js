@@ -20,15 +20,23 @@
       <div class="card">
         <div class="card-header">
           <div class="project-title"><p>Project 1</p></div>
-          <div class="menu"></div>
+          <div class="card-menu"><div>
+            <input type="date" class="date-picker">
+          </div></div>
         </div>
-        <div class="description">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut asperiores, soluta exercitationem suscipit corrupti sapiente natus quidem tempora, quod consequuntur voluptates odio quos reprehenderit ab quis unde rem nisi! Nemo.
+        <div class="card-body">
+          <div class="description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut asperiores, soluta exercitationem suscipit corrupti sapiente natus quidem tempora, quod consequuntur voluptates odio quos reprehenderit ab quis unde rem nisi! Nemo.
+          </div>
+          <div class="progress width"><p>2 projects remaining</p><progress max="100" value="80"></progress> </div>
+          <div class="blue-pills">
+            <div class="title-pill blue-pill">Tasks</div>
+            <div class="action-pill blue-pill">+ New task</div>
+          </div>
+          <to-do status="false" priority='medium'>
+            <span slot="status">Task 1</span>
+          </to-do>
         </div>
-        <div class="progress width"><progress max="100" value="80"></progress> </div>
-        <to-do status="false" priority='medium'>
-          <span slot="status">Task 1</span>
-        </to-do>
         
       </div>
     </div>

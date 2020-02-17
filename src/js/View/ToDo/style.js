@@ -8,7 +8,7 @@ import css from '../helpers/css'
  */
 const style = props => css`
   .container {
-    height: 50px;
+    padding: 10px;
     width: 100%;
     display: grid;
     grid-template-columns: auto 80px;
@@ -21,7 +21,6 @@ const style = props => css`
     ${props ? props.container : ``}
   }
   .status {
-    height: 30px;
     color: white;
   }
   /* https://appitventures.com/blog/styling-checkbox-css-tips/ */

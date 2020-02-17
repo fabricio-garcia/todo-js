@@ -104,7 +104,7 @@ main .search {
 }
 
 .project {
-  height: 200px;
+  height: 300px;
 }
 
 .card {
@@ -121,8 +121,22 @@ main .search {
 .card .add-icon {
   display: flex;
   justify-content: center;
+  filter: invert(76%) sepia(0%) saturate(0%) hue-rotate(227deg) brightness(97%) contrast(93%);
 }
 
 .card .add-text {
   text-align: center;
+  color: #b7b7b7;
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+.project-title {
+  color: #305287;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.description {
+  color: #525650;
 }

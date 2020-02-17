@@ -14,6 +14,23 @@
 
   <%= require('html-loader!../partials/nav.html') %>
 
-  
+  <main>
+
+    <div class="project">
+      <div class="card">
+        <div class="card-header">
+          <div class="project-title"><p>Project 1</p></div>
+          <div class="menu"></div>
+        </div>
+        <div class="description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut asperiores, soluta exercitationem suscipit corrupti sapiente natus quidem tempora, quod consequuntur voluptates odio quos reprehenderit ab quis unde rem nisi! Nemo.
+        </div>
+        <to-do status="false" priority='medium'>
+          <span slot="status">Task 1</span>
+        </to-do>
+        
+      </div>
+    </div>
+  </main>
 </body>
 </html>

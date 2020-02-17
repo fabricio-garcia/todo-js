@@ -2,7 +2,7 @@ const path = require('path')
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
@@ -16,7 +16,7 @@ module.exports = {
 
   // https://webpack.js.org/concepts/entry-points/#multi-page-application
   entry: {
-    projects: './src/page-projects/main.js',
+    projects: './src/page-index/main.js',
     project: './src/page-project/main.js',
     task: './src/page-task/main.js'
   },
@@ -42,7 +42,7 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          MiniCssExtractPlugin.loader,
+          'style-loader',
           'css-loader'
         ]
       },
@@ -67,10 +67,10 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(), // cleans output.path by default
     new HtmlWebpackPlugin({
-      template: './src/page-project/tmpl.html',
+      template: './src/page-index/tmpl.html',
       inject: true,
-      chunks: ['project'],
-      filename: 'project.html'
+      chunks: ['index'],
+      filename: 'index.html'
     }),
     new HtmlWebpackPlugin({
       template: './src/page-project/tmpl.html',

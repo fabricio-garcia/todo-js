@@ -26,11 +26,12 @@
           </div>
         </div>
         <div class="card-body">
-          <form>
+          <form id="new-project-form">
             <fieldset>
-              <input type="text" placeholder="Project Name">
+              <input type="text" placeholder="Project Name" id="project-name" required minlength="3" maxlength="50">
               <textarea name="description" id="project-description" cols="30" rows="10"
-                placeholder="description here"></textarea>
+                placeholder="description here" required minlength="3" maxlength="200"></textarea>
+              <input type="date" name="date" id="project-date" required>
               <input type="submit" value="Save Changes">
             </fieldset>
           </form>

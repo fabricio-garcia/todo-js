@@ -1,4 +1,4 @@
-const form = document.getElementById("new-project-form");
+const form = document.getElementById("edit-project-form");
 
 form.addEventListener('submit', e=>{
     try {

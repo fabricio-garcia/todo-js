@@ -223,7 +223,7 @@ progress::-webkit-progress-bar {
 .dropdown-content a {
   border-radius: 15px;
   color: #3d6db4;
-  padding: 12px 16px;
+  padding: 8px 5px;
   text-decoration: none;
   display: block;
 }

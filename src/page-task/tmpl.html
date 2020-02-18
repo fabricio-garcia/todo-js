@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Contacts</title>
+  <title>Task</title>
   <meta charset="UTF-8">
   <meta http-equiv="cache-control" content="no-cache" />
   <meta http-equiv="pragma" content="no-cache" />
@@ -18,7 +18,7 @@
   <%= require('html-loader!../partials/nav.html') %>
 
   <main>
-    <section class="task-description" hidden>
+    <section class="task-description">
       <div class="card">
         <div class="card-header">
           <div class="project-title">
@@ -31,22 +31,26 @@
         </div>
         <div class="card-body">
           <div class="description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut asperiores, soluta exercitationem suscipit corrupti sapiente natus quidem tempora, quod consequuntur voluptates odio quos reprehenderit ab quis unde rem nisi! Nemo.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut asperiores, soluta exercitationem suscipit
+            corrupti sapiente natus quidem tempora, quod consequuntur voluptates odio quos reprehenderit ab quis unde
+            rem nisi! Nemo.
           </div>
         </div>
       </div>
     </section>
-    <section class="edit-task">
+    <section class="edit-task" hidden>
       <div class="card">
         <div class="card-header">
           <div class="project-title">
             <p>Edit Task</p>
-          </div></div>
+          </div>
+        </div>
         <div class="card-body">
           <form>
             <fieldset>
               <input type="text" placeholder="New Task" value="task-1">
-              <textarea name="description" id="task-description" cols="30" rows="10" placeholder="description here"></textarea>
+              <textarea name="description" id="task-description" cols="30" rows="10"
+                placeholder="description here"></textarea>
               <input type="submit" value="Save Task">
             </fieldset>
           </form>

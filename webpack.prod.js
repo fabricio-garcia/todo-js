@@ -18,7 +18,10 @@ module.exports = {
   entry: {
     projects: './src/page-index/main.js',
     project: './src/page-project/main.js',
-    task: './src/page-task/main.js'
+    task: './src/page-task/main.js',
+    editProject: './src/edit-project/main.js',
+    newProject: './src/new-project/main.js',
+    newTask: './src/new-task/main.js'
   },
 
   // how to write the compiled files to disk
@@ -83,6 +86,24 @@ module.exports = {
       inject: true,
       chunks: ['task'],
       filename: 'task.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/new-project/tmpl.html',
+      inject: true,
+      chunks: ['newProject'],
+      filename: 'newProject.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/edit-project/tmpl.html',
+      inject: true,
+      chunks: ['editProject'],
+      filename: 'editProject.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/new-task/tmpl.html',
+      inject: true,
+      chunks: ['newTask'],
+      filename: 'newTask.html'
     })
   ],
 
@@ -92,7 +113,7 @@ module.exports = {
     chunkIds: false,
     concatenateModules: true,
     flagIncludedChunks: true,
-    nodeEnv: "production",
+    nodeEnv: 'production',
     sideEffects: true,
     usedExports: true,
     splitChunks: {

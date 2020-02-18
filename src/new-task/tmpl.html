@@ -18,24 +18,6 @@
   <%= require('html-loader!../partials/nav.html') %>
 
   <main>
-    <section class="task-description" hidden>
-      <div class="card">
-        <div class="card-header">
-          <div class="project-title">
-            <p>Task 1</p>
-          </div>
-          <div class="card-menu">
-            <img src="<%= require('../img/edit.svg') %>" class="edit-icon">
-            <img src="<%= require('../img/trash.svg') %>" class="erase-icon">
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut asperiores, soluta exercitationem suscipit corrupti sapiente natus quidem tempora, quod consequuntur voluptates odio quos reprehenderit ab quis unde rem nisi! Nemo.
-          </div>
-        </div>
-      </div>
-    </section>
     <section class="edit-task">
       <div class="card">
         <div class="card-header">
@@ -45,9 +27,9 @@
         <div class="card-body">
           <form>
             <fieldset>
-              <input type="text" placeholder="New Task" value="task-1">
+              <input type="text" placeholder="New Task">
               <textarea name="description" id="task-description" cols="30" rows="10" placeholder="description here"></textarea>
-              <input type="submit" value="Save Task">
+              <input type="submit" value="Save Changes">
             </fieldset>
           </form>
         </div>

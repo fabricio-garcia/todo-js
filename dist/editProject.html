@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>About</title>
+  <title>Contacts</title>
   <meta charset="UTF-8">
-  <meta http-equiv="cache-control" content="no-cache"/>
-  <meta http-equiv="pragma" content="no-cache"/>
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="pragma" content="no-cache" />
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport"
-        content="width=device-width,user-scalable=0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    content="width=device-width,user-scalable=0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
+
 <body>
 
   <nav>
@@ -22,31 +25,25 @@
   </nav>
 
   <main>
-
-    <div class="project">
+    <section class="edit-task">
       <div class="card">
         <div class="card-header">
-          <div class="project-title"><p>Project 1</p></div>
-          <div class="card-menu"><div>
-            <input type="date" class="date-picker">
+          <div class="project-title">
+            <p>Edit Project</p>
           </div></div>
-        </div>
         <div class="card-body">
-          <div class="description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut asperiores, soluta exercitationem suscipit corrupti sapiente natus quidem tempora, quod consequuntur voluptates odio quos reprehenderit ab quis unde rem nisi! Nemo.
-          </div>
-          <div class="progress width"><p>2 projects remaining</p><progress max="100" value="80"></progress> </div>
-          <div class="blue-pills">
-            <div class="title-pill blue-pill">Tasks</div>
-            <div class="action-pill blue-pill">+ New task</div>
-          </div>
-          <to-do status="false" priority='medium'>
-            <span slot="status">Task 1</span>
-          </to-do>
+          <form>
+            <fieldset>
+              <input type="text" placeholder="New Name" value="project-1">
+              <textarea name="description" id="project-description" cols="30" rows="10" placeholder="description here"></textarea>
+              <input type="submit" value="Save Changes">
+            </fieldset>
+          </form>
         </div>
-        
       </div>
-    </div>
+    </section>
   </main>
-<script type="text/javascript" src="project.js"></script></body>
+
+<script type="text/javascript" src="editProject.js"></script></body>
+
 </html>

@@ -18,7 +18,10 @@ module.exports = {
   // https://webpack.js.org/configuration/dev-server/
   devServer: {
     port: 3000,
-    writeToDisk: false // https://webpack.js.org/configuration/dev-server/#devserverwritetodisk-
+    writeToDisk: false, // https://webpack.js.org/configuration/dev-server/#devserverwritetodisk-
+    historyApiFallback: {
+      index: './src/utils/404.html'
+    }
   },
 
   // https://webpack.js.org/concepts/loaders/

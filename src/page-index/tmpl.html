@@ -1,64 +1,70 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>BluePlanner</title>
     <meta charset="UTF-8">
-    <meta http-equiv="cache-control" content="no-cache"/>
-    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport"
-          content="width=device-width,user-scalable=0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+        content="width=device-width,user-scalable=0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
+
 <body>
 
-<%= require('html-loader!../partials/nav.html') %>
+    <%= require('html-loader!../partials/nav.html') %>
 
-<main>
-    <div class="header blue-pills">
-        <div class="title-pill blue-pill">Projects</div>
-        <div class="search action-pill">
-            <input type="text" placeholder="Search Project"><span><i class="fas fa-search"></i></span>
-        </div>
-    </div>
-    <div class="project-list">
-        <div class="project">
-            <div class="card">
-                <a class="plus-link" href="newProject.html">
-                    <figure class="add-icon">
-                        <img src="<%= require('../img/add.svg')%>" alt="Add Icon" width="80%;">
-                    </figure>
-                </a>
-                <p class="add-text">Add project</p>
+    <main>
+        <div class="header blue-pills">
+            <div class="title-pill blue-pill">Projects</div>
+            <div class="search action-pill">
+                <input type="text" placeholder="Search Project"><span><i class="fas fa-search"></i></span>
             </div>
         </div>
+        <div class="project-list">
+            <div class="project">
+                <div class="card">
+                    <a class="plus-link" href="newProject.html">
+                        <figure class="add-icon">
+                            <img src="<%= require('../img/add.svg')%>" alt="Add Icon" width="80%;">
+                        </figure>
+                    </a>
+                    <p class="add-text">Add project</p>
+                </div>
+            </div>
 
-        <div class="project">
-            <div class="card">
-                <div class="card-header">
-                    <div class="project-title">Project 1</div>
-                    <div class="card-menu">
-                        <div class="dropdown">
-                            <button class="dropbtn">☰</button>
-                            <div class="dropdown-content">
-                                <a href="#"><img src="<%= require('../img/trash.svg')%>" width="12px" alt=""> Delete</a>
-                                <a href="editProject.html"><img src="<%= require('../img/edit.svg')%>" width="12px"
-                                                                alt=""> Edit</a>
+            <div class="project">
+                <div class="card">
+                    <div class="card-header">
+                        <a href="project.html"><div class="project-title">Project 1</div></a>
+                        <div class="card-menu">
+                            <div class="dropdown">
+                                <button class="dropbtn">☰</button>
+                                <div class="dropdown-content">
+                                    <a href="#"><img src="<%= require('../img/trash.svg')%>" width="12px" alt="">
+                                        Delete</a>
+                                    <a href="editProject.html"><img src="<%= require('../img/edit.svg')%>" width="12px"
+                                            alt=""> Edit</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="description"><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto
-                                sequi, blanditiis voluptatum quis ullam similique labore inventore.</p></div>
-                            <div class="progress">
-                                <progress max="100" value="80"></progress>
-                            </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="description">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto
+                                sequi, blanditiis voluptatum quis ullam similique labore inventore.</p>
+                        </div>
+                        <div class="progress">
+                            <progress max="100" value="80"></progress>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 </body>
+
 </html>

@@ -72,36 +72,42 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/page-index/tmpl.html',
       inject: true,
+      minify: true,
       chunks: ['index'],
       filename: 'index.html'
     }),
     new HtmlWebpackPlugin({
       template: './src/page-project/tmpl.html',
       inject: true,
+      minify: true,
       chunks: ['project'],
       filename: 'project.html'
     }),
     new HtmlWebpackPlugin({
       template: './src/page-task/tmpl.html',
       inject: true,
+      minify: true,
       chunks: ['task'],
       filename: 'task.html'
     }),
     new HtmlWebpackPlugin({
       template: './src/new-project/tmpl.html',
       inject: true,
+      minify: true,
       chunks: ['newProject'],
       filename: 'newProject.html'
     }),
     new HtmlWebpackPlugin({
       template: './src/edit-project/tmpl.html',
       inject: true,
+      minify: true,
       chunks: ['editProject'],
       filename: 'editProject.html'
     }),
     new HtmlWebpackPlugin({
       template: './src/new-task/tmpl.html',
       inject: true,
+      minify: true,
       chunks: ['newTask'],
       filename: 'newTask.html'
     })

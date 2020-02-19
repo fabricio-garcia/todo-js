@@ -6,15 +6,15 @@
  * @version 1.0.0
  */
 
-import './TypeDefs.jsdoc'
+import './TypeDefs.jsdoc';
 
 /**
  * Task to be completed in certain project
- * 
+ *
  * Task should have a short name, not greater than 50 characters,
- * then explain more on a long description. We must 
+ * then explain more on a long description. We must
  * define a priority for each task, and if it is completed
- * 
+ *
  * @param {String} name Short description of the task
  * @param {String} description long description
  * @param {('low'|'medium'|'high')} [priority='medium'] How important is to complete this task
@@ -22,75 +22,75 @@ import './TypeDefs.jsdoc'
  * @returns {Task} Task Object belonging to certain project
  */
 function Task(name, description, priority = 'medium', status = false) {
-  let _name = name
-  let _description = description
-  let _priority = priority
-  let _status = status
+  let thisname = name;
+  let thisdescription = description;
+  let thispriority = priority;
+  let thisstatus = status;
 
-  const getName = () => _name
-  const getDescription = () => _description
-  const getPriority = () => _priority
-  const getStatus = () => _status
+  const getName = () => thisname;
+  const getDescription = () => thisdescription;
+  const getPriority = () => thispriority;
+  const getStatus = () => thisstatus;
   const setName = newName => {
     try {
       if (!newName) throw new Error('No Name to Set');
-      _name = newName
-      return{
+      thisname = newName;
+      return {
         success: true,
-        data: _name
-      }
+        data: thisname,
+      };
     } catch (error) {
       return {
         success: false,
-        error: error.message
-      }
+        error: error.message,
+      };
     }
-  }
+  };
   const setDescription = newDescription => {
     try {
       if (!newDescription) throw new Error('No Description to Set');
-      _description = newDescription
-      return{
+      thisdescription = newDescription;
+      return {
         success: true,
-        data: _description
-      }
+        data: thisdescription,
+      };
     } catch (error) {
       return {
         success: false,
-        error: error.message
-      }
+        error: error.message,
+      };
     }
-  }
+  };
   const setPriority = newPriority => {
     try {
       if (!newPriority) throw new Error('No Priority to Set');
-      _priority = newPriority
-      return{
+      thispriority = newPriority;
+      return {
         success: true,
-        data: _priority
-      }
+        data: thispriority,
+      };
     } catch (error) {
       return {
         success: false,
-        error: error.message
-      }
+        error: error.message,
+      };
     }
-  }
+  };
   const setStatus = newStatus => {
     try {
       if (!newStatus) throw new Error('No Status to Set');
-      _status = newStatus
-      return{
+      thisstatus = newStatus;
+      return {
         success: true,
-        data: _status
-      }
+        data: thisstatus,
+      };
     } catch (error) {
       return {
         success: false,
-        error: error.message
-      }
+        error: error.message,
+      };
     }
-  }
+  };
 
   return {
     name: getName(),
@@ -101,7 +101,7 @@ function Task(name, description, priority = 'medium', status = false) {
     setDescription,
     setPriority,
     setStatus,
-  }
+  };
 }
 
 export default Task;

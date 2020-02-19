@@ -6,7 +6,7 @@
  * @version 1.0.0
  */
 
-import './TypeDefs.jsdoc'
+import './TypeDefs.jsdoc';
 
 /**
  * Project with a certain deadline and some tasks
@@ -27,78 +27,78 @@ const Project = (
   description = 'An important Project',
   tasks = [],
 ) => {
-  let _name = name
-  let _date = date || new Date().toISOString().split('T')[0]
-  let _description = description
-  let _tasks = tasks || []
+  let thisname = name;
+  let thisdate = date || new Date().toISOString().split('T')[0];
+  let thisdescription = description;
+  let thistasks = tasks || [];
 
-  const getName = () => _name
-  const getDate = () => _date
-  const getDescription = () => _description
-  const getTasks = () => _tasks
+  const getName = () => thisname;
+  const getDate = () => thisdate;
+  const getDescription = () => thisdescription;
+  const getTasks = () => thistasks;
   const setName = newName => {
     try {
-      if (!newName) throw new Error('No Name to Set')
-      _name = newName
+      if (!newName) throw new Error('No Name to Set');
+      thisname = newName;
       return {
         success: true,
-        data: _name,
-      }
+        data: thisname,
+      };
     } catch (error) {
       return {
         success: false,
         error: error.message,
-      }
+      };
     }
-  }
+  };
 
   const setDate = newDate => {
     try {
-      if (!newDate) throw new Error('No Date to Set')
-      _date = newDate
+      if (!newDate) throw new Error('No Date to Set');
+      thisdate = newDate;
       return {
         success: true,
-        data: _date,
-      }
+        data: thisdate,
+      };
     } catch (error) {
       return {
         success: false,
         error: error.message,
-      }
+      };
     }
-  }
+  };
 
   const setDescription = newDescription => {
     try {
-      if (!newDescription) throw new Error('No Description to Set')
-      _description = newDescription
+      if (!newDescription) throw new Error('No Description to Set');
+      thisdescription = newDescription;
       return {
         success: true,
-        data: _description,
-      }
+        data: thisdescription,
+      };
     } catch (error) {
       return {
         success: false,
         error: error.message,
-      }
+      };
     }
-  }
+  };
 
   const setTasks = newTasks => {
     try {
-      if (!newTasks) throw new Error('No Tasks to Set')
-      _tasks = newTasks
+      if (!newTasks) throw new Error('No Tasks to Set');
+      thistasks = newTasks;
       return {
         success: true,
-        data: _tasks,
-      }
+        data: thistasks,
+      };
     } catch (error) {
       return {
         success: false,
         error: error.message,
-      }
+      };
     }
-  }
+  };
 
   return {
     name: getName(),
@@ -109,7 +109,7 @@ const Project = (
     setDescription,
     setDate,
     setTasks,
-  }
-}
+  };
+};
 
 export default Project;

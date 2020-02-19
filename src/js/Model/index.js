@@ -1,4 +1,4 @@
-import Project from './Projects'
-import Task from './Task'
+import Project from './Projects';
+import Task from './Task';
 
-export default { Project, Task }
+export default { Project, Task };

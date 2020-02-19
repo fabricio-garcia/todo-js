@@ -12,7 +12,8 @@ module.exports = {
     task: './src/page-task/main.js',
     editProject: './src/edit-project/main.js',
     newProject: './src/new-project/main.js',
-    newTask: './src/new-task/main.js'
+    newTask: './src/new-task/main.js',
+    test: './src/confirm-dialog/main.js'
   },
 
   // https://webpack.js.org/configuration/dev-server/
@@ -98,6 +99,12 @@ module.exports = {
       inject: true,
       chunks: ['newTask'],
       filename: 'newTask.html'
-    })
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/confirm-dialog/tmpl.html',
+      inject: true,
+      chunks: ['test'],
+      filename: 'test.html'
+    }),
   ]
 }

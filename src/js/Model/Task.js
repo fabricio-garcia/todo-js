@@ -9,39 +9,34 @@
 import './TypeDefs.jsdoc';
 
 /**
- * Project with a certain deadline and some tasks
+ * Task to be completed in certain project
  *
  * Task should have a short name, not greater than 50 characters,
  * then explain more on a long description. We must
  * define a priority for each task, and if it is completed
  *
  * [REQUIREMENT]
- * @name Project
+ * @name Task
  * @param {Number} id Number to identify
- * @param {String} name Short description of project
- * @param {String} description Long description
- * @param {String} date Due date in ISO 8601 syntax (YYYY-MM-DD)
- * @param {Task[]} [tasks=[]] Array of tasks from Project
- * @returns {Project} Project with a certain deadline and some tasks
+ * @param {String} name Short description of the task
+ * @param {String} description long description
+ * @param {('low'|'medium'|'high')} [priority='medium'] How important is to complete this task
+ * @param {Boolean} [status=false] Is completed?
+ * @returns {Task} Task Object belonging to certain project
  */
-const Project = (
-  id,
-  name,
-  date,
-  description = 'An important Project',
-  tasks = [],
-) => {
+function Task(id, name, description, priority = 'medium', status = false) {
   const thisid = id || Date.now() * Math.random();
   let thisname = name;
-  let thisdate = date || new Date().toISOString().split('T')[0];
   let thisdescription = description;
-  let thistasks = tasks || [];
+  let thispriority = priority || 'medium';
+  let thisstatus = status || false;
 
   const getId = () => thisid;
   const getName = () => thisname;
-  const getDate = () => thisdate;
   const getDescription = () => thisdescription;
-  const getTasks = () => thistasks;
+  /** @returns {('low'|'medium'|'high')} How important is to complete this task */
+  const getPriority = () => thispriority;
+  const getStatus = () => thisstatus;
 
   const setName = newName => {
     try {
@@ -58,23 +53,6 @@ const Project = (
       };
     }
   };
-
-  const setDate = newDate => {
-    try {
-      if (!newDate) throw new Error('No Date to Set');
-      thisdate = newDate;
-      return {
-        success: true,
-        data: thisdate,
-      };
-    } catch (error) {
-      return {
-        success: false,
-        error: error.message,
-      };
-    }
-  };
-
   const setDescription = newDescription => {
     try {
       if (!newDescription) throw new Error('No Description to Set');
@@ -90,15 +68,28 @@ const Project = (
       };
     }
   };
-
-  const setTasks = newTasks => {
+  const setPriority = newPriority => {
     try {
-      if (!newTasks) throw new Error('No Tasks to Set');
-      if (!Array.isArray(newTasks)) throw new TypeError('Please provide an Array as parameter');
-      thistasks = newTasks;
+      if (!newPriority) throw new Error('No Priority to Set');
+      thispriority = newPriority;
       return {
         success: true,
-        data: thistasks,
+        data: thispriority,
+      };
+    } catch (error) {
+      return {
+        success: false,
+        error: error.message,
+      };
+    }
+  };
+  const setStatus = newStatus => {
+    try {
+      if (!newStatus) throw new Error('No Status to Set');
+      thisstatus = newStatus;
+      return {
+        success: true,
+        data: thisstatus,
       };
     } catch (error) {
       return {
@@ -112,13 +103,13 @@ const Project = (
     id: getId(),
     name: getName(),
     description: getDescription(),
-    date: getDate(),
-    tasks: getTasks(),
+    priority: getPriority(),
+    status: getStatus(),
     setName,
     setDescription,
-    setDate,
-    setTasks,
+    setPriority,
+    setStatus,
   };
-};
+}
 
-export default Project;
+export default Task;

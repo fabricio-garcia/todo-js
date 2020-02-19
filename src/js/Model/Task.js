@@ -13,7 +13,7 @@ import './TypeDefs.jsdoc'
  * 
  * Task should have a short name, not greater than 50 characters,
  * then explain more on a long description. We must 
- * define a priority for each task, and if is completed * 
+ * define a priority for each task, and if is completed
  * 
  * @param {String} name 
  * @param {String} description 

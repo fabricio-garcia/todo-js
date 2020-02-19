@@ -14,7 +14,7 @@ import './TypeDefs.jsdoc';
  * Task should have a short name, not greater than 50 characters,
  * then explain more on a long description. We must
  * define a priority for each task, and if it is completed
- *
+ * @name Task
  * @param {String} name Short description of the task
  * @param {String} description long description
  * @param {('low'|'medium'|'high')} [priority='medium'] How important is to complete this task
@@ -24,11 +24,12 @@ import './TypeDefs.jsdoc';
 function Task(name, description, priority = 'medium', status = false) {
   let thisname = name;
   let thisdescription = description;
-  let thispriority = priority;
-  let thisstatus = status;
+  let thispriority = priority || 'medium';
+  let thisstatus = status || false;
 
   const getName = () => thisname;
   const getDescription = () => thisdescription;
+  /** @returns {('low'|'medium'|'high')} How important is to complete this task */
   const getPriority = () => thispriority;
   const getStatus = () => thisstatus;
   const setName = newName => {

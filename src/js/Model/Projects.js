@@ -14,7 +14,7 @@ import './TypeDefs.jsdoc';
  * Task should have a short name, not greater than 50 characters,
  * then explain more on a long description. We must
  * define a priority for each task, and if it is completed
- *
+ * @name Project
  * @param {String} name Short description of project
  * @param {String} description Long description
  * @param {String} date Due date in ISO 8601 syntax (YYYY-MM-DD)
@@ -87,6 +87,7 @@ const Project = (
   const setTasks = newTasks => {
     try {
       if (!newTasks) throw new Error('No Tasks to Set');
+      if (!Array.isArray(newTasks)) throw new TypeError('Please provide an Array as parameter');
       thistasks = newTasks;
       return {
         success: true,

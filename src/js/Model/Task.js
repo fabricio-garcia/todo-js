@@ -13,13 +13,13 @@ import './TypeDefs.jsdoc'
  * 
  * Task should have a short name, not greater than 50 characters,
  * then explain more on a long description. We must 
- * define a priority for each task, and if is completed
+ * define a priority for each task, and if it is completed
  * 
- * @param {String} name 
- * @param {String} description 
- * @param {('low'|'medium'|'high')} [priority='medium']
- * @param {Boolean} [status=false]
- * @returns {Task}
+ * @param {String} name Short description of the task
+ * @param {String} description long description
+ * @param {('low'|'medium'|'high')} [priority='medium'] How important is to complete this task
+ * @param {Boolean} [status=false] Is completed?
+ * @returns {Task} Task Object belonging to certain project
  */
 function Task(name, description, priority = 'medium', status = false) {
   let _name = name
@@ -32,16 +32,64 @@ function Task(name, description, priority = 'medium', status = false) {
   const getPriority = () => _priority
   const getStatus = () => _status
   const setName = newName => {
-    if (newName) _name = newName
+    try {
+      if (!newName) throw new Error('No Name to Set');
+      _name = newName
+      return{
+        success: true,
+        data: _name
+      }
+    } catch (error) {
+      return {
+        success: false,
+        error: error.message
+      }
+    }
   }
   const setDescription = newDescription => {
-    if (newDescription) _description = newDescription
+    try {
+      if (!newDescription) throw new Error('No Description to Set');
+      _description = newDescription
+      return{
+        success: true,
+        data: _description
+      }
+    } catch (error) {
+      return {
+        success: false,
+        error: error.message
+      }
+    }
   }
   const setPriority = newPriority => {
-    if (newPriority) _priority = newPriority
+    try {
+      if (!newPriority) throw new Error('No Priority to Set');
+      _priority = newPriority
+      return{
+        success: true,
+        data: _priority
+      }
+    } catch (error) {
+      return {
+        success: false,
+        error: error.message
+      }
+    }
   }
   const setStatus = newStatus => {
-    if (newStatus) _status = newStatus
+    try {
+      if (!newStatus) throw new Error('No Status to Set');
+      _status = newStatus
+      return{
+        success: true,
+        data: _status
+      }
+    } catch (error) {
+      return {
+        success: false,
+        error: error.message
+      }
+    }
   }
 
   return {

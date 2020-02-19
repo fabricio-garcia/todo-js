@@ -14,7 +14,10 @@ import './TypeDefs.jsdoc';
  * Task should have a short name, not greater than 50 characters,
  * then explain more on a long description. We must
  * define a priority for each task, and if it is completed
+ *
+ * [REQUIREMENT]
  * @name Project
+ * @param {Number} id Number to identify
  * @param {String} name Short description of project
  * @param {String} description Long description
  * @param {String} date Due date in ISO 8601 syntax (YYYY-MM-DD)
@@ -22,20 +25,24 @@ import './TypeDefs.jsdoc';
  * @returns {Project} Project with a certain deadline and some tasks
  */
 const Project = (
+  id,
   name,
   date,
   description = 'An important Project',
   tasks = [],
 ) => {
+  const thisid = id || Date.now() * Math.random();
   let thisname = name;
   let thisdate = date || new Date().toISOString().split('T')[0];
   let thisdescription = description;
   let thistasks = tasks || [];
 
+  const getId = () => thisid;
   const getName = () => thisname;
   const getDate = () => thisdate;
   const getDescription = () => thisdescription;
   const getTasks = () => thistasks;
+
   const setName = newName => {
     try {
       if (!newName) throw new Error('No Name to Set');
@@ -102,6 +109,7 @@ const Project = (
   };
 
   return {
+    id: getId(),
     name: getName(),
     description: getDescription(),
     date: getDate(),

@@ -14,24 +14,30 @@ import './TypeDefs.jsdoc';
  * Task should have a short name, not greater than 50 characters,
  * then explain more on a long description. We must
  * define a priority for each task, and if it is completed
+ *
+ * [REQUIREMENT]
  * @name Task
+ * @param {Number} id Number to identify
  * @param {String} name Short description of the task
  * @param {String} description long description
  * @param {('low'|'medium'|'high')} [priority='medium'] How important is to complete this task
  * @param {Boolean} [status=false] Is completed?
  * @returns {Task} Task Object belonging to certain project
  */
-function Task(name, description, priority = 'medium', status = false) {
+function Task(id, name, description, priority = 'medium', status = false) {
+  const thisid = id || Date.now() * Math.random();
   let thisname = name;
   let thisdescription = description;
   let thispriority = priority || 'medium';
   let thisstatus = status || false;
 
+  const getId = () => thisid;
   const getName = () => thisname;
   const getDescription = () => thisdescription;
   /** @returns {('low'|'medium'|'high')} How important is to complete this task */
   const getPriority = () => thispriority;
   const getStatus = () => thisstatus;
+
   const setName = newName => {
     try {
       if (!newName) throw new Error('No Name to Set');
@@ -94,6 +100,7 @@ function Task(name, description, priority = 'medium', status = false) {
   };
 
   return {
+    id: getId(),
     name: getName(),
     description: getDescription(),
     priority: getPriority(),

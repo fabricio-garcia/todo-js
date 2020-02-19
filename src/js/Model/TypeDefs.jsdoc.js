@@ -33,7 +33,8 @@
 /**
  * Return Objects for  Storage manipulation
  * @typedef {Object} CRUDResponse Internal access to Storage
- * @property {Boolean} [success] Describe if operation worked
+ * @property {Boolean} success Describe if operation worked
+ * @property {String} [msg=null] Message explaining the action taken
  * @property {String} [error=null] Message explaining the problem
  * @property {Object[]} [data=null] Objects from Storage
  */

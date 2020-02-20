@@ -26,11 +26,11 @@
           </div>
         </div>
         <div class="card-body">
-          <form>
+          <form id="edit-task-form">
             <fieldset>
-              <input type="text" placeholder="New Task">
+              <input type="text" placeholder="New Task" required minlength="5" maxlength="50" id="task-name">
               <textarea name="description" id="task-description" cols="30" rows="10"
-                placeholder="description here"></textarea>
+                placeholder="description here" minlength="5" maxlength="200"></textarea>
               <input type="submit" value="Save Changes">
             </fieldset>
           </form>

@@ -21,7 +21,8 @@ module.exports = {
     task: './src/page-task/main.js',
     editProject: './src/edit-project/main.js',
     newProject: './src/new-project/main.js',
-    newTask: './src/new-task/main.js'
+    newTask: './src/new-task/main.js',
+    dialog: './src/confirm-dialog/main.js',
   },
 
   // how to write the compiled files to disk
@@ -110,7 +111,13 @@ module.exports = {
       minify: true,
       chunks: ['newTask'],
       filename: 'newTask.html'
-    })
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/confirm-dialog/tmpl.html',
+      inject: true,
+      chunks: ['dialog'],
+      filename: 'dialog.html',
+    }),
   ],
 
   // https://webpack.js.org/configuration/optimization/

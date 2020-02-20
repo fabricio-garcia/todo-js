@@ -1,7 +1,7 @@
 // @ts-check
 
 /**
- * @file Remove a element with given Id from some Item in localStorage that is Array
+ * @file Remove an element with given Id from some Item in localStorage that is Array
  * @author Israel Laguan
  * @version 1.0.0
  */

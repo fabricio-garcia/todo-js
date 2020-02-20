@@ -1,3 +1,10 @@
+// @ts-check
+
+/**
+ * @file Provide functions to manipulate Items from Local Storage
+ * @author Israel Laguan
+ * @version 1.0.0
+ */
 import add from './add';
 import readAll from './readAll';
 import readOne from './readOne';
@@ -26,6 +33,6 @@ export default {
   add,
   readAll,
   readOne,
-  update,
   remove,
+  update,
 };

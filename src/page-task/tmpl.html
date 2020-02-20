@@ -25,8 +25,12 @@
             <p>Task 1</p>
           </div>
           <div class="card-menu">
-            <img src="<%= require('../img/edit.svg') %>" class="edit-icon">
-            <img src="<%= require('../img/trash.svg') %>" class="erase-icon">
+            <a>
+              <img src="<%= require('../img/edit.svg') %>" class="edit-icon">
+            </a>
+            <a>
+              <img src="<%= require('../img/trash.svg') %>" class="erase-icon" id="erase-icon" task="task-1-id" role="menu-delete">
+            </a>
           </div>
         </div>
         <div class="card-body">
@@ -58,7 +62,15 @@
       </div>
     </section>
   </main>
-
+  <div id="freezed-layer" class="freezed-layer" style="display: none"></div>
+  <div id="dialogCont" class="dialog-container">
+    <div class="dialog-header" id="dialog-header">Delete Confirmation</div>
+    <p id="dialog-body" class="dialog-body">Do you want to proceed?</p>
+    <div class="dialog-footer">
+      <a href="#" id="cancel" onclick="">Cancel</a>
+      <a href="#" id="confirm" onclick="">Yes</a>
+    </div>
+  </div>
 </body>
 
 </html>

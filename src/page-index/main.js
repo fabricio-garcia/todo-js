@@ -1,7 +1,8 @@
-require('normalize.css/normalize.css')
-require('../css/main.css')
-require('./page.css')
+require('normalize.css/normalize.css');
+require('../css/main.css');
+require('./page.css');
+require('../js/View/home');
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOMContentLoaded', 'page-index')
-})
+  console.log('DOMContentLoaded', 'page-index');
+});

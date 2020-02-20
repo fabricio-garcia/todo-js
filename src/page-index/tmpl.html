@@ -24,7 +24,7 @@
                 <input type="text" placeholder="Search Project"><span><i class="fas fa-search"></i></span>
             </div>
         </div>
-        <div class="project-list">
+        <div class="project-list" id="project-list">
             <div class="project">
                 <div class="card">
                     <a class="plus-link" href="newProject.html">
@@ -50,9 +50,45 @@
                                         <img src="<%= require('../img/edit.svg')%>" width="12px" alt="">
                                         <span>Edit</span>
                                     </a>
-                                    <a class="menu-delete">
-                                        <img src="<%= require('../img/trash.svg')%>" width="12px" alt="">
-                                        <span>Delete</span>
+                                    <a class="menu-delete" project="project-1-id" role="menu-delete">
+                                        <img role="menu-delete" src="<%= require('../img/trash.svg')%>" width="12px"
+                                            alt="" project="project-1-id">
+                                        <span role="menu-delete" project="project-1-id">Delete</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="description">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto
+                                sequi, blanditiis voluptatum quis ullam similique labore inventore.</p>
+                        </div>
+                        <div class="progress">
+                            <progress max="100" value="80"></progress>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="card">
+                    <div class="card-header">
+                        <a href="project.html">
+                            <div class="project-title">Project 2</div>
+                        </a>
+                        <div class="card-menu">
+                            <div class="dropdown">
+                                <button class="dropbtn">☰</button>
+                                <div class="dropdown-content">
+                                    <a href="editProject.html" class="menu-edit">
+                                        <img src="<%= require('../img/edit.svg')%>" width="12px" alt="">
+                                        <span>Edit</span>
+                                    </a>
+                                    <a class="menu-delete" project="project-2-id" role="menu-delete">
+                                        <img role="menu-delete" src="<%= require('../img/trash.svg')%>" width="12px"
+                                            alt="" project="project-2-id">
+                                        <span role="menu-delete" project="project-2-id">Delete</span>
                                     </a>
                                 </div>
                             </div>
@@ -71,6 +107,15 @@
             </div>
         </div>
     </main>
+    <div id="freezed-layer" class="freezed-layer" style="display: none"></div>
+    <div id="dialogCont" class="dialog-container">
+        <div class="dialog-header" id="dialog-header">Delete Confirmation</div>
+        <div id="dialog-body" class="dialog-body">Do you want to proceed?</div>
+        <div class="dialog-footer">
+            <a href="#" id="cancel" onclick="">Cancel</a>
+            <a href="#" id="confirm" onclick="">Yes</a>
+        </div>
+    </div>
 </body>
 
 </html>

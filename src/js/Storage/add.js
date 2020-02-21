@@ -17,7 +17,7 @@ const addToArray = (item, array) => {
   try {
     const temp = [...array];
     const isItem = array.some(e => e.id === item.id);
-    if (!isItem) {
+    if (isItem) {
       return {
         success: false,
         error: `The element ${item.name} is already on Storage. Do you want to update it?`,
@@ -46,7 +46,7 @@ const add = (element, storageName) => {
     const storage = JSON.parse(window.localStorage.getItem(storageName));
     const { success, error, data } = addToArray(element, storage);
     if (!success) throw new Error(error);
-    storage.setItem(storageName, JSON.stringify(data));
+    window.localStorage.setItem(storageName, JSON.stringify(data));
     return { success: true, msg: `Element added to ${storageName}`, data };
   } catch (error) {
     return { success: false, error: error.message };

@@ -17,18 +17,18 @@ import './TypeDefs.jsdoc';
  *
  * [REQUIREMENT]
  * @name Project
- * @param {Number} id Number to identify
  * @param {String} name Short description of project
- * @param {String} description Long description
  * @param {String} date Due date in ISO 8601 syntax (YYYY-MM-DD)
+ * @param {String} description Long description
+ * @param {Number} [id] Number to identify
  * @param {Task[]} [tasks=[]] Array of tasks from Project
  * @returns {Project} Project with a certain deadline and some tasks
  */
 const Project = (
-  id,
   name,
   date,
   description = 'An important Project',
+  id = Date.now() * Math.random(),
   tasks = [],
 ) => {
   const thisid = id || Date.now() * Math.random();

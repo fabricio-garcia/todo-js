@@ -5,31 +5,37 @@ require('../js/View/task');
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOMContentLoaded', 'page-contacts');
+  // TODO: Check if currentProject is set
+  // If not redirect to '/'
+  // TODO: Check if currentTask is set
+  // If not redirect to '/project'
 });
 
-document.querySelector('.edit-icon').addEventListener('click', evt => {
-  document.querySelector(".edit-task").removeAttribute("hidden");
-  document.querySelector(".task-description").setAttribute("hidden", true);
-  console.log('soething happened!')
+document.querySelector('.edit-icon').addEventListener('click', () => {
+  document.querySelector('.edit-task').removeAttribute('hidden');
+  document.querySelector('.task-description').setAttribute('hidden', true);
+  console.log('something happened!');
 });
 
-const form = document.getElementById("edit-task-form");
+const form = document.getElementById('edit-task-form');
 
-form.addEventListener('submit', e=>{
-    try {
-        e.preventDefault();
-        const name = e.target['task-name'].value;
-        if (!name) return Error('Please Put your name!');        
-        const description = e.target['task-description'].value;             
-        // Create project Object with factory function
-        // Save on local storage
+form.addEventListener('submit', e => {
+  try {
+    e.preventDefault();
+    const name = e.target['task-name'].value;
+    if (!name) return Error('Please Put your name!');
+    // const description = e.target['task-description'].value;
 
-        alert('Success!');
-        window.location = '/';
-        return true
-    } catch (error) {
-        console.error(error)
-        alert(`Something went wrong: ${error.message}`);
-        return false
-    }    
-})
+    // TODO: set currentTask
+    // Create project Object with factory function
+    // Save on local storage
+
+    alert('Success!');
+    window.location = '/project';
+    return true;
+  } catch (error) {
+    console.error(error);
+    alert(`Something went wrong: ${error.message}`);
+    return false;
+  }
+});

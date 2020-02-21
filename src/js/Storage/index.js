@@ -11,12 +11,12 @@ import readOne from './readOne';
 import update from './update';
 import remove from './remove';
 
-const init = storage => {
+const init = () => {
   try {
     const Projects = JSON.parse(window.localStorage.getItem('projects'));
-    if (!Projects) storage.setItem('projects', JSON.stringify([]));
+    if (!Projects) window.localStorage.setItem('projects', JSON.stringify([]));
     const Tasks = JSON.parse(window.localStorage.getItem('tasks'));
-    if (!Tasks) storage.setItem('tasks', JSON.stringify([]));
+    if (!Tasks) window.localStorage.setItem('tasks', JSON.stringify([]));
     return { success: true, msg: 'Storage initialized!', data: [Projects, Tasks] };
   } catch (error) {
     return { error: error.message };

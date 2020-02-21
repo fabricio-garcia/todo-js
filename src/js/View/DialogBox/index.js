@@ -1,6 +1,3 @@
-
-console.log('hello');
-
 const dialog = document.getElementById('dialogCont');
 
 const removeEvent = (item) => {

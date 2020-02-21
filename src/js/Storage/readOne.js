@@ -17,7 +17,7 @@ import '../Model/TypeDefs.jsdoc';
 const readOne = (id, storageName) => {
   try {
     const myLibrary = JSON.parse(window.localStorage.getItem(storageName));
-    const element = myLibrary.filter(e => e.id === id);
+    const element = myLibrary.filter(e => e.id === Number(id));
     if (element.size < 1) throw new Error('The Id given is not correct');
     return { success: true, msg: 'Storage retrieved!', data: element };
   } catch (error) {

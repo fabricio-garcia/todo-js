@@ -15,8 +15,7 @@ projects.addEventListener('click', e => {
     success, error, data,
   } = Storage.readOne(projectId, 'projects');
   if (!success) throw new Error(error);
-
-  window.localStorage.setItem('currentProject', data);
+  window.localStorage.setItem('currentProject', JSON.stringify(data[0]));
   window.localStorage.setItem('isTask', false);
   openDialog();
 });

@@ -1,7 +1,10 @@
+import remove from '../../Storage/remove';
+
 const dialog = document.getElementById('dialogCont');
 
-const removeEvent = (item) => {
-  console.log(item, 'Is deleted');
+const removeEvent = (item, storageName) => {
+  const { success, error } = remove(item.id, storageName);
+  if (!success) throw new Error(error);
 };
 
 export const openDialog = () => {
@@ -9,7 +12,6 @@ export const openDialog = () => {
   dialog.style.opacity = 1;
   document.getElementById('freezed-layer').style.display = '';
 };
-
 
 document.getElementById('cancel').addEventListener('click', () => {
   dialog.style.top = '-50%';
@@ -21,15 +23,17 @@ document.getElementById('confirm').addEventListener('click', () => {
   dialog.style.top = '-50%';
   dialog.style.opacity = 0;
   document.getElementById('freezed-layer').style.display = 'none';
-  const isProject = JSON.parse(window.localStorage.getItem('isTask'));
-  if (isProject === false) {
-    const currentProject = window.localStorage.getItem('currentProject');
-    removeEvent(currentProject);
-    window.localStorage.removeItem('currentProject');
-  } else {
+  const isTask = JSON.parse(window.localStorage.getItem('isTask'));
+  if (isTask) {
     const currentTask = window.localStorage.getItem('currentTask');
     removeEvent(currentTask);
     window.localStorage.removeItem('currentTask');
+  } else {
+    const currentProject = JSON.parse(
+      window.localStorage.getItem('currentProject'),
+    );
+    removeEvent(currentProject, 'projects');
+    window.localStorage.removeItem('currentProject');
   }
   window.location.reload(true);
 });

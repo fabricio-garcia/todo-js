@@ -2,14 +2,14 @@ const projectCardT = (project) => `
   <div class="project">
     <div class="card">
         <div class="card-header">
-            <a href="project.html/${project.id}">
+            <a href="project.html?id=${project.id}">
                 <div class="project-title">${project.name}</div>
             </a>
             <div class="card-menu">
                 <div class="dropdown">
                     <button class="dropbtn">☰</button>
                     <div class="dropdown-content">
-                        <a href="editProject.html/${project.id}" class="menu-edit">
+                        <a href="editProject.html?id=${project.id}" class="menu-edit">
                             <i class="fas fa-pen edit"></i>
                             <span>Edit</span>
                         </a>

@@ -23,30 +23,30 @@
       <div class="card">
         <div class="card-header">
           <div class="project-title">
-            <p>Project 1</p>
+            <p id="project-name">Project X</p>
           </div>
           <div class="card-menu">
             <div>
-              <input type="date" class="date-picker">
+              <input type="date" class="date-picker" id='project-date' readonly>
             </div>
           </div>
         </div>
         <div class="card-body">
-          <div class="description">
+          <div class="description" id='project-description'>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut asperiores, soluta exercitationem suscipit
             corrupti sapiente natus quidem tempora, quod consequuntur voluptates odio quos reprehenderit ab quis unde
             rem nisi! Nemo.
           </div>
-          <div class="progress width">
-            <p>2 projects remaining</p><progress max="100" value="80"></progress>
-          </div>
+          
           <div class="blue-pills">
             <div class="title-pill blue-pill">Tasks</div>
-            <div class="action-pill blue-pill"><a href="newTask.html" slot="status">+ New task</a></div>
+            <div class="action-pill blue-pill"><a id='new-task-link'>+ New task</a></div>
           </div>
-          <to-do status="false" priority='medium'>
-            <a href="task.html" slot="status">Task 1</a>
-          </to-do>
+          <div id="task-list">
+            <!-- <to-do status="false" priority='medium'>
+              <a href="task.html" slot="status">Task 1</a>
+            </to-do> -->
+          </div>
         </div>
 
       </div>

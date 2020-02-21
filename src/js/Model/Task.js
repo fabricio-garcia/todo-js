@@ -17,17 +17,17 @@ import './TypeDefs.jsdoc';
  *
  * [REQUIREMENT]
  * @name Task
- * @param {Number} id Number to identify
  * @param {String} name Short description of the task
  * @param {String} description long description
+ * @param {Number} [id] Number to identify
  * @param {('low'|'medium'|'high')} [priority='medium'] How important is to complete this task
  * @param {Boolean} [status=false] Is completed?
  * @returns {Task} Task Object belonging to certain project
  */
-function Task(id, name, description, priority = 'medium', status = false) {
-  const thisid = id || Date.now() * Math.random();
+function Task(name, description, id = Date.now() * Math.random(), priority = 'medium', status = false) {
   let thisname = name;
   let thisdescription = description;
+  const thisid = id || Date.now() * Math.random();
   let thispriority = priority || 'medium';
   let thisstatus = status || false;
 

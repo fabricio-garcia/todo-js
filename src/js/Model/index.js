@@ -8,4 +8,5 @@
 import Project from './Projects';
 import Task from './Task';
 
-export default { Project, Task };
+export const project = Project;
+export const task = Task;

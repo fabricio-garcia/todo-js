@@ -1,10 +1,14 @@
+import Storage from '../js/Storage';
+
 require('normalize.css/normalize.css');
 require('../css/main.css');
 require('./page.css');
 require('../js/View/task');
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOMContentLoaded', 'page-contacts');
+  const { success, error, data } = Storage.readOne(Number(window.location.search.split('id=')[1]), 'projects');
+  if (!success) throw new Error(error);
+  console.log(data[0]);
   // TODO: Check if currentProject is set
   // If not redirect to '/'
   // TODO: Check if currentTask is set

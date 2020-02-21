@@ -1,11 +1,14 @@
+import {project, task} from '../js/Model'
+import Storage from '../js/Storage';
+
 require('normalize.css/normalize.css');
 require('../css/main.css');
 require('./page.css');
 
+const { success, data } = Storage.readOne(Number(window.location.search.split('id=')[1]), 'projects');
+
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOMContentLoaded', 'page-contacts');
-  // TODO: Check if currentProject is set
-  // If not redirect to '/'
+  if (data.length < 1) window.location = '/';
 });
 
 const form = document.getElementById('edit-task-form');
@@ -15,15 +18,19 @@ form.addEventListener('submit', e => {
     e.preventDefault();
     const name = e.target['task-name'].value;
     if (!name) return Error('Please Put your name!');
-    // const description = e.target['task-description'].value;
-    // Create project Object with factory function
-    // Save on local storage
-
-    alert('Success!');
-    window.location = '/project';
+    const description = e.target['task-description'].value;
+    const thisTask = task(name, description);
+    const newTasks = [...data[0].tasks];
+    newTasks.push(thisTask);
+    const params = [data[0].name, data[0].date, data[0].description, data[0].id, newTasks];
+    const thisProject = project(...params);
+    const {
+      success, error,
+    } = Storage.update(data[0].id, thisProject, 'projects');
+    if (!success) throw new Error(error);
+    window.location = `/project.html?id=${Number(window.location.search.split('id=')[1])}`;
     return true;
   } catch (error) {
-    console.error(error);
     alert(`Something went wrong: ${error.message}`);
     return false;
   }

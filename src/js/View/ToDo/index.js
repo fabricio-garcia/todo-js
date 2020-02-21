@@ -1,5 +1,5 @@
 // @ts-check
-import template from './template.js';
+import template from './template';
 
 export default class ToDo extends HTMLElement {
   constructor() {
@@ -9,8 +9,11 @@ export default class ToDo extends HTMLElement {
     this.priority = this.getAttribute('priority');
     // eslint-disable-next-line
     this._shadowRoot = this.attachShadow({ mode: 'open' });
+    // eslint-disable-next-line
     this._shadowRoot.appendChild(template(this.css, this.status, this.priority).content.cloneNode(true));
+    // eslint-disable-next-line
     this.checkbox = this._shadowRoot.getElementById('checkbox');
+    // eslint-disable-next-line
     this.select= this._shadowRoot.getElementById('select');
     this.checkChange = this.checkChange.bind(this);
     this.setPriority = this.selectPriority.bind(this);

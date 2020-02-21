@@ -1,5 +1,6 @@
 import Storage from '../Storage';
 import { openDialog } from './DialogBox';
+import template from './ProjectCard';
 
 const projects = document.getElementById('project-list');
 
@@ -21,10 +22,10 @@ projects.addEventListener('click', e => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  const projectList = document.getElementById('project-list');
   const projects = JSON.parse(window.localStorage.getItem('projects'));
-  if (projects.size < 1) return;
-  projects.map((project, index) => {
-    console.log(project, index);
-    return project;
+  if (projects.length < 1) return;
+  projects.forEach(project => {
+    projectList.innerHTML += template(project);
   });
 });

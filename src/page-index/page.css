@@ -5,12 +5,12 @@
     font: inherit;
 }
 
-.menu-edit img {
-    filter: invert(40%) sepia(19%) saturate(1656%) hue-rotate(176deg) brightness(96%) contrast(93%);
+.menu-edit .edit {
+    color: #3d6db4;
 }
 
-.menu-delete img {
-    filter: invert(14%) sepia(91%) saturate(4750%) hue-rotate(350deg) brightness(86%) contrast(109%);
+.menu-delete .remove {
+    color: #e30613;
 }
 
 .menu-edit span{

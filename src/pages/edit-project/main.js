@@ -1,11 +1,16 @@
+
+import Card from '../../js/View/Card';
+
+window.customElements.define('my-card', Card);
+
 require('normalize.css/normalize.css');
-require('../css/main.css');
+require('../../css/main.css');
 require('./page.css');
 
+const { data } = Storage.readOne(Number(window.location.search.split('id=')[1]), 'projects');
+
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOMContentLoaded', 'page-contacts');
-  // TODO: Check if currentProject is set
-  // If not redirect to '/'
+  if (data.length < 1) window.location = '/';
 });
 
 document
@@ -25,12 +30,9 @@ form.addEventListener('submit', e => {
     // Create project Object with factory function
     // Save on local storage
 
-    alert('Success!');
     window.location = '/';
     return true;
   } catch (error) {
-    console.error(error);
-    alert(`Something went wrong: ${error.message}`);
     return false;
   }
 });

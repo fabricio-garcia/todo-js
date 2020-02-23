@@ -23,11 +23,7 @@ const init = () => {
   }
 };
 
-const {
-  success, error, msg, data,
-} = init();
-if (!success) console.error(error);
-console.info(msg, data);
+init();
 
 export default {
   add,

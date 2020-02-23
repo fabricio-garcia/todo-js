@@ -1,19 +1,17 @@
-import Storage from '../js/Storage';
-import Card from '../js/View/Card';
+import Storage from '../../js/Storage';
+import Card from '../../js/View/Card';
 
 window.customElements.define('my-card', Card);
 
 require('normalize.css/normalize.css');
-require('../css/main.css');
+require('../../css/main.css');
 require('./page.css');
-require('../js/View/task');
+require('../../js/View/task');
 
 document.addEventListener('DOMContentLoaded', () => {
   const { success, error, data } = Storage.readOne(Number(window.location.search.split('id=')[1]), 'projects');
   if (!success) throw new Error(error);
-  console.log(data[0]);
-  // TODO: Check if currentProject is set
-  // If not redirect to '/'
+  if (data.length < 1) window.location = '/';
   // TODO: Check if currentTask is set
   // If not redirect to '/project'
 });
@@ -21,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelector('.edit-icon').addEventListener('click', () => {
   document.querySelector('.edit-task').removeAttribute('hidden');
   document.querySelector('.task-description').setAttribute('hidden', true);
-  console.log('something happened!');
 });
 
 const form = document.getElementById('edit-task-form');
@@ -37,12 +34,9 @@ form.addEventListener('submit', e => {
     // Create project Object with factory function
     // Save on local storage
 
-    alert('Success!');
-    window.location = '/project';
+    window.location = `/project?${window.location.search.split('?')[1]}`;
     return true;
   } catch (error) {
-    console.error(error);
-    alert(`Something went wrong: ${error.message}`);
     return false;
   }
 });

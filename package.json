@@ -1,6 +1,6 @@
 {
   "name": "todo-js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "ToDo APP Created with Vanilla JavaScript",
   "author": "Fabricio Garcia <fabricio-garcia>, Israel Laguan <Israel-Laguan>",
   "contributors": [
@@ -15,14 +15,18 @@
     "test": "standard"
   },
   "dependencies": {
-    "normalize.css": "^8.0.1"
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "normalize.css": "^8.0.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "url-loader": "^3.0.0",
+    "terser-webpack-plugin": "^2.3.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
     "babel-loader": "^8.0.6",
-    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.2",
     "cz-conventional-changelog": "^3.1.0",
     "eslint": "^6.8.0",
@@ -30,15 +34,11 @@
     "eslint-plugin-import": "^2.20.1",
     "file-loader": "^5.0.2",
     "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
     "http-server": "^0.12.1",
     "mini-css-extract-plugin": "^0.9.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "prettier": "^1.19.1",
     "standard": "^14.3.1",
     "style-loader": "^1.1.3",
-    "terser-webpack-plugin": "^2.3.4",
-    "url-loader": "^3.0.0",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"

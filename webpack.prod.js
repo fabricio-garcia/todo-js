@@ -1,12 +1,11 @@
-const path = require('path')
-
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
-const buildPath = path.resolve(__dirname, 'dist')
+const buildPath = path.resolve(__dirname, 'dist');
 
 module.exports = {
 
@@ -16,20 +15,19 @@ module.exports = {
 
   // https://webpack.js.org/concepts/entry-points/#multi-page-application
   entry: {
-    projects: './src/page-index/main.js',
-    project: './src/page-project/main.js',
-    task: './src/page-task/main.js',
-    editProject: './src/edit-project/main.js',
-    newProject: './src/new-project/main.js',
-    newTask: './src/new-task/main.js',
-    dialog: './src/confirm-dialog/main.js',
+    index: './src/pages/home/main.js',
+    project: './src/pages/project/main.js',
+    task: './src/pages/task/main.js',
+    editProject: './src/pages/edit-project/main.js',
+    newProject: './src/pages/new-project/main.js',
+    newTask: './src/pages/new-task/main.js',
   },
 
   // how to write the compiled files to disk
   // https://webpack.js.org/concepts/output/
   output: {
     filename: '[name].[hash:20].js',
-    path: buildPath
+    path: buildPath,
   },
 
   // https://webpack.js.org/concepts/loaders/
@@ -40,15 +38,15 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env']
-        }
+          presets: ['@babel/preset-env'],
+        },
       },
       {
         test: /\.css$/i,
         use: [
           'style-loader',
-          'css-loader'
-        ]
+          'css-loader',
+        ],
       },
       {
         // Load all images as base64 encoding if they are smaller than 8192 bytes
@@ -59,64 +57,52 @@ module.exports = {
             options: {
               name: '[name].[hash:20].[ext]',
               esModule: false,
-              limit: 8192
-            }
-          }
-        ]
-      }
-    ]
+              limit: 8192,
+            },
+          },
+        ],
+      },
+    ],
   },
 
   // https://webpack.js.org/concepts/plugins/
   plugins: [
     new CleanWebpackPlugin(), // cleans output.path by default
     new HtmlWebpackPlugin({
-      template: './src/page-index/tmpl.html',
+      template: './src/pages/home/tmpl.html',
       inject: true,
-      minify: true,
       chunks: ['index'],
-      filename: 'index.html'
+      filename: 'index.html',
     }),
     new HtmlWebpackPlugin({
-      template: './src/page-project/tmpl.html',
+      template: './src/pages/project/tmpl.html',
       inject: true,
-      minify: true,
       chunks: ['project'],
-      filename: 'project.html'
+      filename: 'project.html',
     }),
     new HtmlWebpackPlugin({
-      template: './src/page-task/tmpl.html',
+      template: './src/pages/task/tmpl.html',
       inject: true,
-      minify: true,
       chunks: ['task'],
-      filename: 'task.html'
+      filename: 'task.html',
     }),
     new HtmlWebpackPlugin({
-      template: './src/new-project/tmpl.html',
+      template: './src/pages/new-project/tmpl.html',
       inject: true,
-      minify: true,
       chunks: ['newProject'],
-      filename: 'newProject.html'
+      filename: 'newProject.html',
     }),
     new HtmlWebpackPlugin({
-      template: './src/edit-project/tmpl.html',
+      template: './src/pages/edit-project/tmpl.html',
       inject: true,
-      minify: true,
       chunks: ['editProject'],
-      filename: 'editProject.html'
+      filename: 'editProject.html',
     }),
     new HtmlWebpackPlugin({
-      template: './src/new-task/tmpl.html',
+      template: './src/pages/new-task/tmpl.html',
       inject: true,
-      minify: true,
       chunks: ['newTask'],
-      filename: 'newTask.html'
-    }),
-    new HtmlWebpackPlugin({
-      template: './src/confirm-dialog/tmpl.html',
-      inject: true,
-      chunks: ['dialog'],
-      filename: 'dialog.html',
+      filename: 'newTask.html',
     }),
   ],
 
@@ -133,7 +119,7 @@ module.exports = {
       hidePathInfo: true,
       minSize: 30000,
       maxAsyncRequests: 5,
-      maxInitialRequests: 3
+      maxInitialRequests: 3,
     },
     noEmitOnErrors: true,
     minimize: true,
@@ -141,15 +127,12 @@ module.exports = {
       new TerserPlugin({
         cache: true,
         parallel: true,
-        sourceMap: true
+        sourceMap: true,
       }),
-      new OptimizeCssAssetsPlugin({})
-    ]
+      new OptimizeCssAssetsPlugin({}),
+    ],
   },
   performance: {
-    hints: "warning"
+    hints: 'warning',
   },
-  output: {
-    pathinfo: false
-  }
-}
+};

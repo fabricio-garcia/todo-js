@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -8,12 +7,12 @@ module.exports = {
 
   // https://webpack.js.org/concepts/entry-points/#multi-page-application
   entry: {
-    index: './src/page-index/main.js',
-    project: './src/page-project/main.js',
-    task: './src/page-task/main.js',
-    editProject: './src/edit-project/main.js',
-    newProject: './src/new-project/main.js',
-    newTask: './src/new-task/main.js',
+    index: './src/pages/home/main.js',
+    project: './src/pages/project/main.js',
+    task: './src/pages/task/main.js',
+    editProject: './src/pages/edit-project/main.js',
+    newProject: './src/pages/new-project/main.js',
+    newTask: './src/pages/new-task/main.js',
   },
 
   // https://webpack.js.org/configuration/dev-server/
@@ -21,7 +20,7 @@ module.exports = {
     port: 3000,
     writeToDisk: false, // https://webpack.js.org/configuration/dev-server/#devserverwritetodisk-
     historyApiFallback: {
-      index: './src/utils/404.html',
+      index: './src/pages/404.html',
     },
   },
 
@@ -64,37 +63,37 @@ module.exports = {
   // https://webpack.js.org/concepts/plugins/
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/page-index/tmpl.html',
+      template: './src/pages/home/tmpl.html',
       inject: true,
       chunks: ['index'],
       filename: 'index.html',
     }),
     new HtmlWebpackPlugin({
-      template: './src/page-project/tmpl.html',
+      template: './src/pages/project/tmpl.html',
       inject: true,
       chunks: ['project'],
       filename: 'project.html',
     }),
     new HtmlWebpackPlugin({
-      template: './src/page-task/tmpl.html',
+      template: './src/pages/task/tmpl.html',
       inject: true,
       chunks: ['task'],
       filename: 'task.html',
     }),
     new HtmlWebpackPlugin({
-      template: './src/new-project/tmpl.html',
+      template: './src/pages/new-project/tmpl.html',
       inject: true,
       chunks: ['newProject'],
       filename: 'newProject.html',
     }),
     new HtmlWebpackPlugin({
-      template: './src/edit-project/tmpl.html',
+      template: './src/pages/edit-project/tmpl.html',
       inject: true,
       chunks: ['editProject'],
       filename: 'editProject.html',
     }),
     new HtmlWebpackPlugin({
-      template: './src/new-task/tmpl.html',
+      template: './src/pages/new-task/tmpl.html',
       inject: true,
       chunks: ['newTask'],
       filename: 'newTask.html',

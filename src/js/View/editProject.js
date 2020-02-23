@@ -13,12 +13,9 @@ form.addEventListener('submit', e => {
     // Create project Object with factory function
     // Save on local storage
 
-    alert('Success!');
     window.location = '/';
     return true;
   } catch (error) {
-    console.error(error);
-    alert(`Something went wrong: ${error.message}`);
     return false;
   }
 });

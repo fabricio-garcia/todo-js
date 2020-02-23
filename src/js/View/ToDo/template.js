@@ -12,7 +12,7 @@ const template = (css, status, priority) => {
             <input type="checkbox" ${status === 'true' ? 'checked' : null} id="checkbox">
             <span class="checkbox-custom circular"></span>
           </label>
-          <div id="input-title"><slot name="status">Task 1</slot></div>
+          <div id="input-title"><slot>Task 1</slot></div>
         </div>
       </div>
       <select class="priority ${priority}" id="select">

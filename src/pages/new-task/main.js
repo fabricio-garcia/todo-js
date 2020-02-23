@@ -1,11 +1,11 @@
-import { project, task } from '../js/Model';
-import Storage from '../js/Storage';
-import Card from '../js/View/Card';
+import { project, task } from '../../js/Model';
+import Storage from '../../js/Storage';
+import Card from '../../js/View/Card';
 
 window.customElements.define('my-card', Card);
 
 require('normalize.css/normalize.css');
-require('../css/main.css');
+require('../../css/main.css');
 require('./page.css');
 
 const { data } = Storage.readOne(Number(window.location.search.split('id=')[1]), 'projects');
@@ -34,7 +34,6 @@ form.addEventListener('submit', e => {
     window.location = `/project.html?id=${Number(window.location.search.split('id=')[1])}`;
     return true;
   } catch (error) {
-    alert(`Something went wrong: ${error.message}`);
     return false;
   }
 });

@@ -19,11 +19,13 @@
 
   <main>
     <section class="task-description">
-      <div class="card">
-        <div class="card-header">
+      <my-card>
+        <div slot="card-title">
           <div class="project-title">
             <p>Task 1</p>
           </div>
+        </div>
+        <div slot="card-menu" class="card-menu">
           <div class="card-menu">
             <a>
               <img src="<%= require('../img/edit.svg') %>" class="edit-icon">
@@ -40,10 +42,10 @@
             rem nisi! Nemo.
           </div>
         </div>
-      </div>
+      </my-card>
     </section>
     <section class="edit-task" hidden>
-      <div class="card">
+      <my-card>
         <div class="card-header">
           <div class="project-title">
             <p>Edit Task</p>
@@ -59,7 +61,7 @@
             </fieldset>
           </form>
         </div>
-      </div>
+      </my-card>
     </section>
   </main>
   <div id="freezed-layer" class="freezed-layer" style="display: none"></div>

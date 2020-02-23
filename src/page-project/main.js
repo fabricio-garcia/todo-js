@@ -1,5 +1,8 @@
 import ToDo from '../js/View/ToDo';
 import Storage from '../js/Storage';
+import Card from '../js/View/Card';
+
+window.customElements.define('my-card', Card);
 
 require('normalize.css/normalize.css');
 require('../css/main.css');

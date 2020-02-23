@@ -13,6 +13,7 @@ main {
 .card-menu img {
   width: 25px;
   margin: 0 5px;
+  cursor: pointer;
 }
 
 .erase-icon {

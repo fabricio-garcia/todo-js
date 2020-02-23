@@ -31,7 +31,8 @@ form input, form textarea {
   margin: 1em 0;
   resize: none;
 }
-.card-body fieldset {
+
+form fieldset {
   border: none;
   display: flex;
   flex-direction: column;

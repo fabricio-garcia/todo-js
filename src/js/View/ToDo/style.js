@@ -1,5 +1,5 @@
 // @ts-check
-import css from '../helpers/css'
+import css from '../helpers/css';
 
 /**
  * CSS for the template
@@ -18,10 +18,11 @@ const style = props => css`
     color: white;
     font-weight: bold;
     border-radius: 25px;
-    ${props ? props.container : ``}
+    ${props && props.container}
   }
   .status {
     color: white;
+    ${props && props.status}
   }
   /* https://appitventures.com/blog/styling-checkbox-css-tips/ */
   .checkbox-container {
@@ -29,10 +30,12 @@ const style = props => css`
     display: flex;
     flex-direction: row;
     align-items: center;
+    ${props && props.checkboxContainer}
   }
   .done {
     text-decoration: line-through;
     color: #dbdbdb;
+    ${props && props.done}
   }
   .priority {
     color: white;
@@ -45,18 +48,22 @@ const style = props => css`
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
+    ${props && props.priority}
   }
 
   .priority.low {
     background-color: #478844;
+    ${props && props.priorityLow}
   }
 
   .priority.medium {
     background-color: #3d6db4;
+    ${props && props.priorityMedium}
   }
 
   .priority.high {
     background-color: #e30613;
+    ${props && props.priorityHigh}
   }
 
   .checkbox-label {
@@ -67,6 +74,7 @@ const style = props => css`
     height: 25px;
     width: 25px;
     clear: both;
+    ${props && props.checkboxLabel}
   }
 
   .checkbox-label input {
@@ -193,6 +201,6 @@ const style = props => css`
   .checkbox-label input:checked ~ .checkbox-custom.circular::before {
     border-radius: 50%;
   }
-`
+`;
 
-export default style
+export default style;

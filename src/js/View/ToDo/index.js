@@ -7,30 +7,28 @@ export default class ToDo extends HTMLElement {
     this.status = this.getAttribute('status');
     this.css = this.getAttribute('css');
     this.priority = this.getAttribute('priority');
-    // eslint-disable-next-line
-    this._shadowRoot = this.attachShadow({ mode: 'open' });
-    // eslint-disable-next-line
-    this._shadowRoot.appendChild(template(this.css, this.status, this.priority).content.cloneNode(true));
-    // eslint-disable-next-line
-    this.checkbox = this._shadowRoot.getElementById('checkbox');
-    // eslint-disable-next-line
-    this.select= this._shadowRoot.getElementById('select');
+    this.shadowDOM = this.attachShadow({ mode: 'open' });
+    this.shadowDOM
+      .appendChild(template(this.css, this.status, this.priority)
+        .content
+        .cloneNode(true));
+    this.checkbox = this.shadowDOM.getElementById('checkbox');
+    this.select = this.shadowDOM.getElementById('select');
     this.checkChange = this.checkChange.bind(this);
     this.setPriority = this.selectPriority.bind(this);
   }
 
   connectedCallback() {
-    this.checkbox.addEventListener('change',this.checkChange);
-    this.select.addEventListener('change',this.setPriority);
-    
+    this.checkbox.addEventListener('change', this.checkChange);
+    this.select.addEventListener('change', this.setPriority);
   }
 
-  checkChange(e){
-    this.setAttribute('status',e.target['checked'])
+  checkChange(e) {
+    this.setAttribute('status', e.target.checked);
   }
 
-  selectPriority(e){
-    this.setAttribute('priority',e.target['value'].toLowerCase())
+  selectPriority(e) {
+    this.setAttribute('priority', e.target.value.toLowerCase());
   }
 
   static get observedAttributes() {
@@ -38,22 +36,21 @@ export default class ToDo extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
-    if (name==='priority'){
-      this.select.classList.remove(oldVal?oldVal:this.priority);
-      this._shadowRoot.getElementById(oldVal?oldVal:this.priority).removeAttribute('selected');
+    if (name === 'priority') {
+      this.select.classList.remove(oldVal || this.priority);
+      this.shadowDOM.getElementById(oldVal || this.priority).removeAttribute('selected');
       this.select.classList.add(newVal);
-      return this._shadowRoot.getElementById(newVal).setAttribute('selected', 'true');
+      this.shadowDOM.getElementById(newVal).setAttribute('selected', 'true');
+      return;
     }
-    if(name==='status'){
-      if (newVal==='true'){
-        return this._shadowRoot.getElementById('input-title').classList.add('done')
-      } else {
-        return this._shadowRoot.getElementById('input-title').classList.remove('done')
+    if (name === 'status') {
+      if (newVal === 'true') {
+        this.shadowDOM.getElementById('input-title').classList.add('done');
+        return;
       }
+      this.shadowDOM.getElementById('input-title').classList.remove('done');
+      return;
     }
     this[name] = newVal;
-  }
-  disconnectedCallback() {
-
   }
 }

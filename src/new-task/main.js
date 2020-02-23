@@ -1,11 +1,14 @@
-import {project, task} from '../js/Model'
+import { project, task } from '../js/Model';
 import Storage from '../js/Storage';
+import Card from '../js/View/Card';
+
+window.customElements.define('my-card', Card);
 
 require('normalize.css/normalize.css');
 require('../css/main.css');
 require('./page.css');
 
-const { success, data } = Storage.readOne(Number(window.location.search.split('id=')[1]), 'projects');
+const { data } = Storage.readOne(Number(window.location.search.split('id=')[1]), 'projects');
 
 document.addEventListener('DOMContentLoaded', () => {
   if (data.length < 1) window.location = '/';

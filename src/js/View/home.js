@@ -1,6 +1,6 @@
 import Storage from '../Storage';
 import { openDialog } from './DialogBox';
-import template from './ProjectCard';
+import template from './projectCard';
 
 const projects = document.getElementById('project-list');
 

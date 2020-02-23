@@ -94,28 +94,13 @@ main .search {
   height: 300px;
 }
 
-.card {
-  background-color: white;
-  border-radius: 20px;
-  padding: 2em;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.card-header {
-  display: flex;
-  justify-content: center;
-}
-
-.card .add-icon {
+.add-icon {
   display: flex;
   justify-content: center;
   filter: invert(76%) sepia(0%) saturate(0%) hue-rotate(227deg) brightness(97%) contrast(93%);
 }
 
-.card .add-text {
+.add-text {
   text-align: center;
   color: #b7b7b7;
   font-size: 1.3rem;
@@ -197,7 +182,7 @@ progress::-webkit-progress-bar {
 .dropbtn {
   background-color: white;
   color: #3d6db4;
-  padding: 16px;
+  padding: 2px 16px;
   font-size: 16px;
   border: none;
 }

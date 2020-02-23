@@ -1,4 +1,7 @@
-require('normalize.css/normalize.css');
-require('../css/main.css');
-require('./page.css');
-require('../js/View/home');
+import 'normalize.css/normalize.css';
+import '../css/main.css';
+import './page.css';
+import '../js/View/home';
+import Card from '../js/View/Card';
+
+window.customElements.define('my-card', Card);

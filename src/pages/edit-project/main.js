@@ -1,5 +1,6 @@
 import Storage from '../../js/Storage';
 import Card from '../../js/View/Card';
+import Project from '../../js/Model/Projects';
 
 window.customElements.define('my-card', Card);
 
@@ -29,10 +30,12 @@ form.addEventListener('submit', e => {
     if (!name) return Error('Please Put your name!');
     const date = e.target['project-date'].value;
     if (!date) return Error('Please Put a due date for project!');
-    // const description = e.target['project-description'].value;
-    // Create project Object with factory function
-    // Save on local storage
-
+    const description = e.target['project-description'].value;
+    const thisProject = Project(name, date, description, data[0].id, data[0].tasks);
+    const {
+      success, error,
+    } = Storage.update(data[0].id, thisProject, 'projects');
+    if (!success) throw new Error(error);
     window.location = '/';
     return true;
   } catch (error) {

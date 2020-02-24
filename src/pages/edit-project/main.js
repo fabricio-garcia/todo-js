@@ -11,6 +11,9 @@ const { data } = Storage.readOne(Number(window.location.search.split('id=')[1]),
 
 document.addEventListener('DOMContentLoaded', () => {
   if (data.length < 1) window.location = '/';
+  document.getElementById('project-name').value = data[0].name;
+  document.getElementById('project-description').value = data[0].description;
+  document.getElementById('project-date').value = data[0].date;
 });
 
 document

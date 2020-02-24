@@ -1,4 +1,4 @@
-
+import Storage from '../../js/Storage';
 import Card from '../../js/View/Card';
 
 window.customElements.define('my-card', Card);

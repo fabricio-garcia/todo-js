@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const { success, error, data } = Storage.readOne(Number(window.location.search.split('id=')[1]), 'projects');
   if (!success) throw new Error(error);
   if (data.length < 1) window.location = '/';
+  window.localStorage.setItem('currentProject', JSON.stringify(data));
   document.getElementById('project-name').innerText = data[0].name;
   document.getElementById('project-date').value = data[0].date;
   document.getElementById('project-description').innerText = data[0].description;
@@ -23,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
   data[0].tasks.forEach(task => {
     tasksList.innerHTML += `
       <to-do status="${task.status}" priority="${task.priority}">
-        <a href="task.html?id='${task.id}' slot="status">${task.name}</a>
+        <a href="task.html?id=${task.id}">${task.name}</a>
       </to-do>
     `;
-  })
+  });
 });

@@ -1,4 +1,4 @@
-import Storage from '../../js/Storage';
+// import Storage from '../../js/Storage';
 import Card from '../../js/View/Card';
 
 window.customElements.define('my-card', Card);
@@ -9,11 +9,12 @@ require('./page.css');
 require('../../js/View/task');
 
 document.addEventListener('DOMContentLoaded', () => {
-  const { success, error, data } = Storage.readOne(Number(window.location.search.split('id=')[1]), 'projects');
-  if (!success) throw new Error(error);
-  if (data.length < 1) window.location = '/';
-  // TODO: Check if currentTask is set
-  // If not redirect to '/project'
+  const currentProject = JSON.parse(window.localStorage.getItem('currentProject'));
+  if (currentProject.length < 1) window.location = '/';
+  const task = currentProject[0].tasks.filter(task => task.id === Number(window.location.search.split('id=')[1]));
+  if (task.length < 1) window.location = `/project.html?id=${Number(window.location.search.split('id=')[1])}`;
+  document.getElementById('task-name').innerText = task[0].name;
+  document.getElementById('task-description').innerText = task[0].description;
 });
 
 document.querySelector('.edit-icon').addEventListener('click', () => {

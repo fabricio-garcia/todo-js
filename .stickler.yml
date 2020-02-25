@@ -3,4 +3,4 @@ linters:
     config: './.eslintrc.json'
 files:
   ignore:
-      - 'dist/*'
+      - 'docs/*'

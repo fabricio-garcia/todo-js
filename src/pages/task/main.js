@@ -5,6 +5,7 @@ import Project from '../../js/Model/Projects';
 
 window.customElements.define('my-card', Card);
 
+// eslint-disable-next-line import/no-unresolved
 require('normalize.css/normalize.css');
 require('../../css/main.css');
 require('./page.css');

@@ -4,6 +4,7 @@ import Card from '../../js/View/Card';
 
 window.customElements.define('my-card', Card);
 
+// eslint-disable-next-line import/no-unresolved
 require('normalize.css/normalize.css');
 require('../../css/main.css');
 require('./page.css');

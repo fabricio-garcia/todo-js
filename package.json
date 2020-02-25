@@ -1,6 +1,6 @@
 {
   "name": "todo-js",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "ToDo APP Created with Vanilla JavaScript",
   "author": "Fabricio Garcia <fabricio-garcia>, Israel Laguan <Israel-Laguan>",
   "contributors": [
@@ -9,7 +9,7 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js --mode development",
     "build": "webpack --config webpack.prod.js --mode production",
-    "preview": "npm run build && http-server dist",
+    "preview": "npm run build && http-server docs",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
     "test": "standard"

@@ -1,3 +1,4 @@
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -13,6 +14,18 @@ module.exports = {
     editProject: './src/pages/edit-project/main.js',
     newProject: './src/pages/new-project/main.js',
     newTask: './src/pages/new-task/main.js',
+  },
+
+  // https://medium.com/groww-engineering/module-aliasing-in-webpack-f02fe1b91f94
+  resolve: {
+    alias: {
+      css: path.resolve(__dirname, 'src/css/'),
+      img: path.resolve(__dirname, 'src/img'),
+      model: path.resolve(__dirname, 'src/js/Model'),
+      storage: path.resolve(__dirname, 'src/js/Storage'),
+      view: path.resolve(__dirname, 'src/js/View'),
+    },
+    extensions: ['.js', '.css'],
   },
 
   // https://webpack.js.org/configuration/dev-server/

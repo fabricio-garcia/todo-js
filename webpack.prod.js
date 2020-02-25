@@ -30,6 +30,18 @@ module.exports = {
     path: buildPath,
   },
 
+  // https://medium.com/groww-engineering/module-aliasing-in-webpack-f02fe1b91f94
+  resolve: {
+    alias: {
+      css: path.resolve(__dirname, 'src/css/'),
+      img: path.resolve(__dirname, 'src/img'),
+      model: path.resolve(__dirname, 'src/js/Model'),
+      storage: path.resolve(__dirname, 'src/js/Storage'),
+      view: path.resolve(__dirname, 'src/js/View'),
+    },
+    extensions: ['.js', '.css'],
+  },
+
   // https://webpack.js.org/concepts/loaders/
   module: {
     rules: [

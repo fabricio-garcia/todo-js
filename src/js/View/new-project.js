@@ -1,23 +1,15 @@
 import Storage from '../Storage';
-import Card from './Card';
 import Project from '../Model/Projects';
+import Card from './Card';
 
 window.customElements.define('my-card', Card);
-
-const { data } = Storage.readOne(Number(window.location.search.split('id=')[1]), 'projects');
+const form = document.getElementById('new-project-form');
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (data.length < 1) window.location = '/';
-  document.getElementById('project-name').value = data[0].name;
-  document.getElementById('project-description').value = data[0].description;
-  document.getElementById('project-date').value = data[0].date;
+  document
+    .getElementById('project-date')
+    .setAttribute('min', new Date().toISOString().split('T')[0]);
 });
-
-document
-  .getElementById('project-date')
-  .setAttribute('min', new Date().toISOString().split('T')[0]);
-
-const form = document.getElementById('edit-project-form');
 
 form.addEventListener('submit', e => {
   try {
@@ -27,10 +19,10 @@ form.addEventListener('submit', e => {
     const date = e.target['project-date'].value;
     if (!date) return Error('Please Put a due date for project!');
     const description = e.target['project-description'].value;
-    const thisProject = Project(name, date, description, data[0].id, data[0].tasks);
+    const thisProject = Project(name, date, description);
     const {
       success, error,
-    } = Storage.update(data[0].id, thisProject, 'projects');
+    } = Storage.add(thisProject, 'projects');
     if (!success) throw new Error(error);
     window.location = '/';
     return true;

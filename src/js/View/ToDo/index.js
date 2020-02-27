@@ -15,21 +15,20 @@ export default class ToDo extends HTMLElement {
     this.checkbox = this.shadowDOM.getElementById('checkbox');
     this.select = this.shadowDOM.getElementById('select');
     this.checkChange = this.checkChange.bind(this);
-    this.setPriority = this.selectPriority.bind(this);
   }
 
-  connectedCallback() {
-    this.checkbox.addEventListener('change', this.checkChange);
-    this.select.addEventListener('change', this.setPriority);
-  }
+  // connectedCallback() {
+  //   this.checkbox.addEventListener('change', this.checkChange);
+  //   this.select.addEventListener('change', this.setPriority);
+  // }
 
-  checkChange(e) {
-    this.setAttribute('status', e.target.checked);
-  }
+  // checkChange(e) {
+  //   this.setAttribute('status', e.target.checked);
+  // }
 
-  selectPriority(e) {
-    this.setAttribute('priority', e.target.value.toLowerCase());
-  }
+  // selectPriority(e) {
+  //   this.setAttribute('priority', e.target.value.toLowerCase());
+  // }
 
   static get observedAttributes() {
     return ['status', 'priority'];

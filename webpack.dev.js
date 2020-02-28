@@ -1,22 +1,40 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-
   // This option controls if and how source maps are generated.
   // https://webpack.js.org/configuration/devtool/
   devtool: 'eval-cheap-module-source-map',
 
   // https://webpack.js.org/concepts/entry-points/#multi-page-application
   entry: {
-    index: './src/page-index/main.js',
-    about: './src/page-about/main.js',
-    contacts: './src/page-contacts/main.js'
+    index: './src/pages/home/main.js',
+    project: './src/pages/project/main.js',
+    task: './src/pages/task/main.js',
+    editProject: './src/pages/edit-project/main.js',
+    newProject: './src/pages/new-project/main.js',
+    newTask: './src/pages/new-task/main.js',
+  },
+
+  // https://medium.com/groww-engineering/module-aliasing-in-webpack-f02fe1b91f94
+  resolve: {
+    alias: {
+      css: path.resolve(__dirname, 'src/css/'),
+      img: path.resolve(__dirname, 'src/img'),
+      model: path.resolve(__dirname, 'src/js/Model'),
+      storage: path.resolve(__dirname, 'src/js/Storage'),
+      view: path.resolve(__dirname, 'src/js/View'),
+    },
+    extensions: ['.js', '.css'],
   },
 
   // https://webpack.js.org/configuration/dev-server/
   devServer: {
     port: 3000,
-    writeToDisk: false // https://webpack.js.org/configuration/dev-server/#devserverwritetodisk-
+    writeToDisk: false, // https://webpack.js.org/configuration/dev-server/#devserverwritetodisk-
+    historyApiFallback: {
+      index: './src/pages/404.html',
+    },
   },
 
   // https://webpack.js.org/concepts/loaders/
@@ -27,16 +45,15 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env']
-        }
+          presets: ['@babel/preset-env'],
+        },
       },
       {
         test: /\.css$/i,
         use: [
           'style-loader',
-          'css-loader'
-          // Please note we are not running postcss here
-        ]
+          'css-loader',
+        ],
       },
       {
         // Load all images as base64 encoding if they are smaller than 8192 bytes
@@ -45,36 +62,54 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              // On development we want to see where the file is coming from, hence we preserve the [path]
+              // On development we want to see where the file is coming from
               name: '[path][name].[ext]?hash=[hash:20]',
               esModule: false,
-              limit: 8192
-            }
-          }
-        ]
-      }
-    ]
+              limit: 8192,
+            },
+          },
+        ],
+      },
+    ],
   },
 
   // https://webpack.js.org/concepts/plugins/
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/page-index/tmpl.html',
+      template: './src/pages/home/tmpl.html',
       inject: true,
       chunks: ['index'],
-      filename: 'index.html'
+      filename: 'index.html',
     }),
     new HtmlWebpackPlugin({
-      template: './src/page-about/tmpl.html',
+      template: './src/pages/project/tmpl.html',
       inject: true,
-      chunks: ['about'],
-      filename: 'about.html'
+      chunks: ['project'],
+      filename: 'project.html',
     }),
     new HtmlWebpackPlugin({
-      template: './src/page-contacts/tmpl.html',
+      template: './src/pages/task/tmpl.html',
       inject: true,
-      chunks: ['contacts'],
-      filename: 'contacts.html'
-    })
-  ]
-}
+      chunks: ['task'],
+      filename: 'task.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/new-project/tmpl.html',
+      inject: true,
+      chunks: ['newProject'],
+      filename: 'newProject.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/edit-project/tmpl.html',
+      inject: true,
+      chunks: ['editProject'],
+      filename: 'editProject.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/new-task/tmpl.html',
+      inject: true,
+      chunks: ['newTask'],
+      filename: 'newTask.html',
+    }),
+  ],
+};

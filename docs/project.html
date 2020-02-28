@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Project</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport"
+    content="width=device-width,user-scalable=0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <nav>
+  <ul>
+    <li><a href="index.html"> <i class="fas fa-calendar-alt"></i> BluePlanner</a>
+    </li>
+  </ul>
+</nav>
+
+  <main>
+
+    <div class="project">
+      <my-card>
+        <div class="project-title" slot="card-title">
+          <p id="project-name">Project X</p>
+        </div>
+        <div slot="card-menu">
+          <div>
+            <input type="date" class="date-picker" id='project-date' readonly>
+          </div>
+        </div>
+        <div>
+          <div class="description" id='project-description'>
+          </div>          
+          <div class="blue-pills">
+            <div class="title-pill blue-pill">Tasks</div>
+            <div class="action-pill blue-pill"><a id='new-task-link'>+ New task</a></div>
+          </div>
+          <div id="task-list">
+          </div>
+        </div>
+      </my-card>
+    </div>
+  </main>
+<script type="text/javascript" src="project.248d04021785b50c1d9d.js"></script></body>
+
+</html>

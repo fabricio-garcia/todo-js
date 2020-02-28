@@ -1,0 +1,46 @@
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-description {
+  min-width: 500px;
+  max-width: 900px;
+}
+
+.card-menu img {
+  width: 25px;
+  margin: 0 5px;
+}
+
+.erase-icon {
+  filter: invert(14%) sepia(94%) saturate(4845%) hue-rotate(351deg) brightness(86%) contrast(108%);
+}
+
+.edit-icon {
+  filter: invert(40%) sepia(19%) saturate(1656%) hue-rotate(176deg) brightness(96%) contrast(93%);
+}
+
+form input, form textarea {
+  border: none;
+  border-radius: 1em;
+  background-color: #dbdbdb;
+  padding: 20px;
+  margin: 1em 0;
+  resize: none;
+}
+
+form fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+form input[type="submit"]{
+  background-color: #478844;
+  color: white;
+  font-weight: 900;
+  cursor: pointer;
+}

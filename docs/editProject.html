@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Edit Project</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport"
+    content="width=device-width,user-scalable=0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <nav>
+  <ul>
+    <li><a href="index.html"> <i class="fas fa-calendar-alt"></i> BluePlanner</a>
+    </li>
+  </ul>
+</nav>
+
+  <main>
+    <section class="edit-task">
+      <my-card>
+        <div class="card-header">
+          <div class="project-title">
+            <p>Edit Project</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <form id="edit-project-form">
+            <fieldset>
+              <input type="text" 
+              placeholder="New Name" value="project-1" id="project-name" required minlength="5" maxlength="50">
+              <textarea name="description" id="project-description" cols="30" rows="10"
+                placeholder="description here" minlength="5" maxlength="200"
+                >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis fugiat qui aspernatur aut ratione
+              </textarea>
+              <input type="date" name="date" id="project-date" required>
+              <input type="submit" value="Save Changes">
+            </fieldset>
+          </form>
+        </div>
+      </my-card>
+    </section>
+  </main>
+
+<script type="text/javascript" src="editProject.248d04021785b50c1d9d.js"></script></body>
+
+</html>

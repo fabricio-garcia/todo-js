@@ -7,8 +7,5 @@ main {
 
   .project {
     width: 50vw;
-  }
-
-  .card {
-    padding: 50px;
+    height: auto;
   }

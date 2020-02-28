@@ -34,7 +34,9 @@ const style = props => css`
   }
   .done {
     text-decoration: line-through;
-    color: #dbdbdb;
+    text-decoration-style: double;
+    font-weight: 200;
+    color: red;
     ${props && props.done}
   }
   .priority {
@@ -42,7 +44,9 @@ const style = props => css`
     font-weight: bold;
     border: none;
     margin: 0 5px;
-    padding: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 15px;
     height: 30px;
     -moz-appearance: none;

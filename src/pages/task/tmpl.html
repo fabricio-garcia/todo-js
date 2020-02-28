@@ -31,13 +31,21 @@
               <img src="<%= require('../../img/edit.svg') %>" class="edit-icon">
             </a>
             <a>
-              <img src="<%= require('../../img/trash.svg') %>" class="erase-icon" id="erase-icon" task="task-1-id" role="menu-delete">
+              <img src="<%= require('../../img/trash.svg') %>" class="erase-icon" id="erase-icon" task="task-1-id"
+                role="menu-delete">
             </a>
           </div>
         </div>
         <div class="card-body">
-          <div class="description" id="task-description"></div>
+          <div class="status">
+            <span id="status"><b>STATUS:&nbsp;</b></span>
           </div>
+          <div class="description" id="task-description"></div>
+          <div class="priority">
+            <span id="priority"><b>PRIORITY:&nbsp;</b></span>
+            <p id="priority-description"></p>
+          </div>
+        </div>
         </div>
       </my-card>
     </section>
@@ -52,8 +60,20 @@
           <form id="edit-task-form">
             <fieldset>
               <input type="text" placeholder="New Task" id="edit-task-name" required minlength="5" maxlength="50">
-              <textarea name="description" id="edit-task-description" cols="30" rows="10"
-                placeholder="description here" minlength="5" maxlength="200"></textarea>
+              <textarea name="description" id="edit-task-description" cols="30" rows="10" placeholder="description here"
+                minlength="5" maxlength="200"></textarea>
+                <select class="priority" id="edit-task-priority">
+                  <option id="low" value='low'>LOW</option>
+                  <option id="medium" value='medium'>MEDIUM</option>
+                  <option id="high" value='high'>HIGH</option>
+                </select>
+                <div class="checkbox-container circular-container">
+                  <label class="checkbox-label">
+                    <input type="checkbox" id="edit-task-status">
+                    <span class="checkbox-custom circular"></span>
+                  </label>
+                  Is done?
+                </div>
               <input type="submit" value="Save Task">
             </fieldset>
           </form>

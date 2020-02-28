@@ -4,6 +4,12 @@ import Task from '../Model/Task';
 import Project from '../Model/Projects';
 import { openDialog } from './DialogBox';
 
+const priorityDescription = {
+  low: 'They can wait, but not forget to make them, atom by atom our world is done!',
+  medium: 'Please take time to finish this!',
+  high: 'What are you waiting for?! Go and complete this!',
+};
+
 window.customElements.define('my-card', Card);
 const { data } = Storage.readOne(Number(window.location.search.split('id=')[1]), 'projects');
 const task = JSON.parse(window.localStorage.getItem('currentTask'));
@@ -11,7 +17,11 @@ const task = JSON.parse(window.localStorage.getItem('currentTask'));
 document.addEventListener('DOMContentLoaded', () => {
   if (data.length < 1) window.location = '/';
   document.getElementById('task-name').innerText = task[0].name;
-  document.getElementById('task-description').innerText = task[0].description;
+  document.getElementById('task-description').innerText = task[0].description.trim();
+  document.getElementById('priority').innerText += task[0].priority.toUpperCase();
+  document.getElementById('priority-description').innerHTML = priorityDescription[task[0].priority];
+  document.getElementById('priority').classList.add(task[0].priority);
+  document.getElementById('status').innerText += task[0].status ? 'Finished' : 'Not Finished';
 });
 
 document.getElementById('erase-icon').addEventListener('click', () => {
@@ -22,7 +32,10 @@ document.querySelector('.edit-icon').addEventListener('click', () => {
   document.querySelector('.edit-task').removeAttribute('hidden');
   document.querySelector('.task-description').setAttribute('hidden', true);
   document.getElementById('edit-task-name').value = task[0].name;
-  document.getElementById('edit-task-description').value = task[0].description;
+  document.getElementById('edit-task-description').value = task[0].description.trim();
+  document.getElementById('edit-task-priority').setAttribute('class', `priority ${task[0].priority}`);
+  document.querySelector(`select>option#${task[0].priority}`).setAttribute('selected', true);
+  document.getElementById('edit-task-status').checked = task[0].status;
 });
 
 const updateItemInArray = (id, item, array) => {
@@ -52,7 +65,9 @@ document.getElementById('edit-task-form').addEventListener('submit', e => {
     const name = e.target['edit-task-name'].value;
     if (!name) return Error('Please Put your name!');
     const description = e.target['edit-task-description'].value;
-    const args = [name, description, task[0].id, task[0].priority, task[0].status];
+    const priority = e.target['edit-task-priority'].value;
+    const status = e.target['edit-task-status'].checked;
+    const args = [name, description, task[0].id, priority, status];
     const thisTask = Task(...args);
     const newTasks = [...data[0].tasks];
     const updatedTasks = updateItemInArray(task[0].id, thisTask, newTasks);

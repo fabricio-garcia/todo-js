@@ -1,41 +1,78 @@
 {
   "name": "todo-js",
-  "version": "1.0.0",
-  "description": "To Do List Web App created with JS",
-  "main": "index.js",
-  "directories": {
-    "doc": "doc"
+  "version": "1.1.1",
+  "description": "ToDo APP Created with Vanilla JavaScript",
+  "author": "Fabricio Garcia <fabricio-garcia>, Israel Laguan <Israel-Laguan>",
+  "contributors": [
+    "Aivaras Prudnikovas <ivarprudnikov> - Webpack Configuration"
+  ],
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.dev.js --mode development",
+    "build": "webpack --config webpack.prod.js --mode production",
+    "preview": "npm run build && http-server docs",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
+    "test": "standard"
   },
   "dependencies": {
+    "clean-webpack-plugin": "^3.0.0",
     "html-webpack-plugin": "^3.2.0",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.3"
+    "normalize.css": "^8.0.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "url-loader": "^3.0.0",
+    "terser-webpack-plugin": "^2.3.4"
   },
   "devDependencies": {
-    "cz-conventional-changelog": "^3.1.0"
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.4.2",
+    "cz-conventional-changelog": "^3.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "file-loader": "^5.0.2",
+    "html-loader": "^0.5.5",
+    "http-server": "^0.12.1",
+    "mini-css-extract-plugin": "^0.9.0",
+    "prettier": "^1.19.1",
+    "standard": "^14.3.1",
+    "style-loader": "^1.1.3",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "standard": {
+    "env": [
+      "node",
+      "es6"
+    ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fabricio-garcia/todo-js.git"
+  "engines": {
+    "node": ">= 10.0.0"
   },
-  "keywords": [
-    "todo",
-    "js",
-    "webpack"
-  ],
-  "author": "Fabricio Garcia",
-  "license": "Apache-2.0",
+  "homepage": "https://github.com/fabricio-garcia/todo-js#readme",
   "bugs": {
     "url": "https://github.com/fabricio-garcia/todo-js/issues"
   },
-  "homepage": "https://github.com/fabricio-garcia/todo-js#readme",
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  }
+  "license": "MIT",
+  "private": true,
+  "keywords": [
+    "todo list",
+    "javascript",
+    "js",
+    "webpack",
+    "static",
+    "starter",
+    "html",
+    "pages",
+    "eslint"
+  ],
+  "browserslist": [
+    "last 2 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ]
 }

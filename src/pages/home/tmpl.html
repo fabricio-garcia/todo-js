@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BluePlanner</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport"
+        content="width=device-width,user-scalable=0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <%= require('html-loader!../partials/nav.html') %>
+
+    <main>
+        <div class="header blue-pills">
+            <div class="title-pill blue-pill">Projects</div>
+            <div class="search action-pill">
+                <input type="text" placeholder="Search Project"><span><i class="fas fa-search"></i></span>
+            </div>
+        </div>
+        <div class="project-list" id="project-list">
+            <div class="project">
+                <my-card>
+                    <a class="plus-link" href="newProject.html">
+                        <figure class="add-icon">
+                            <img src="<%= require('../../img/add.svg')%>" alt="Add Icon" width="80%;">
+                        </figure>
+                    </a>
+                    <p class="add-text">Add project</p>
+                </my-card>
+            </div>
+
+            
+        </div>
+    </main>
+    <div id="freezed-layer" class="freezed-layer" style="display: none"></div>
+    <div id="dialogCont" class="dialog-container">
+        <div class="dialog-header" id="dialog-header">Delete Confirmation</div>
+        <div id="dialog-body" class="dialog-body">Do you want to proceed?</div>
+        <div class="dialog-footer">
+            <a href="#" id="cancel" onclick="">Cancel</a>
+            <a href="#" id="confirm" onclick="">Yes</a>
+        </div>
+    </div>
+</body>
+
+</html>

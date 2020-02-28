@@ -3,4 +3,6 @@ linters:
     config: './.eslintrc.json'
 files:
   ignore:
-      - 'dist/*'
+      - 'docs/*'
+      - 'webpack.dev.js'
+      - 'webpack.prod.js'

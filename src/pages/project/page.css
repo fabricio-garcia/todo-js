@@ -1,0 +1,11 @@
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .project {
+    width: 50vw;
+    height: auto;
+  }

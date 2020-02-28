@@ -18,7 +18,8 @@
 <p align="center">
   <a href="https://www.microverse.org/">
     <img alt="Logo" height="80" src="./src/img/microverse.png" width="80">
-  </a>
+  </a> <br>
+  <img alt="Logo"  src="./src/img/home_projects.png" ">
 
   <h1 align="center">
 	Todo List
@@ -64,7 +65,10 @@
 
 # Live Demo
 
-[Link](https://fabricio-garcia.github.io/todo-js/)
+[Link](http://blue-planner.surge.sh/)
+
+ <img alt="new project"  src="./src/img/new_project.png">
+ <img alt="task list"  src="./src/img/task_list.png">
 
 # Build
 

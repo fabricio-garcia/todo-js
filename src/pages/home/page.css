@@ -1,0 +1,30 @@
+.dropdown-content button[plain] {
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    font: inherit;
+}
+
+.menu-edit .edit {
+    color: #3d6db4;
+}
+
+.menu-delete .remove {
+    color: #e30613;
+}
+
+.menu-edit span{
+    border-radius: 15px;
+    background-color: #3d6db4;
+    color: white;
+    font-weight: 900;
+    padding: 2px 10px;
+}
+
+.menu-delete span {
+    border-radius: 15px;
+    background-color: #e30613;
+    color: white;
+    font-weight: 900;
+    padding: 2px 10px;
+}

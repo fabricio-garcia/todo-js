@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "es2018",
+      "allowSyntheticDefaultImports": false,
+      "baseUrl": "./",
+      "paths": {
+        "css/*": ["src/css/*"],
+        "img/*": ["src/img/*"],
+        "model/*": ["src/js/Model/*"],
+        "storage/*": ["src/js/Storage/*"],
+        "view/*": ["src/js/View/*"]
+      }
+    },
+    "exclude": ["node_modules"]
+  }

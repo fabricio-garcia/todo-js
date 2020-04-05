@@ -94,6 +94,10 @@ switch `devServer.writeToDisk` to `true` in [webpack.dev.js](./webpack.dev.js)
 
 - `npm run build` to prepare `html`, `css`, `js` files in `dist/` directory
 
+# Automated tests
+
+No automated tests for this project have been implmented but it is something that should eventually be added 
+
 # Authors
 
 👨 [Fabricio Garcia](https://github.com/fabricio-garcia)\

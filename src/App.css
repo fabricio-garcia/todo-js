@@ -90,13 +90,13 @@
 
 /* * --- --- ---  TODOs List --- --- --- */
 
-.todos__list {
+.todo-list {
   list-style: none;
   height: 100%;
   overflow: auto;
 }
 
-.todos__list__todo {
+.todo-list__todo {
   height: 60px;
   padding: 0 20px;
   align-items: center;
@@ -106,40 +106,40 @@
   grid-template-columns: auto 1fr auto;
 }
 
-.todos__list__text {
+.todo-list__text {
   text-align: left;
   width: 100%;
 }
 
-.todos__list__todo:hover .todos__list__icon-action {
+.todo-list__todo:hover .todo-list__icon-action {
   opacity: 0.5;
 }
 
-.todos__list__todo:nth-child(even) {
+.todo-list__todo:nth-child(even) {
   background: #f3f3f3;
 }
 
-.todos__list__container-buttons {
+.todo-list__container-buttons {
   display: flex;
 }
 
-.todos__list__icon {
+.todo-list__icon {
   cursor: pointer;
   font-size: 16px;
 }
 
-.todos__list__icon-check {
+.todo-list__icon-check {
   margin-right: 20px;
   font-size: 26px;
 }
 
-.todos__list__icon-action {
+.todo-list__icon-action {
   margin-left: 20px;
   opacity: 0;
   transition: 0.3s ease all;
 }
 
-.todos__list__message {
+.todo-list__message {
   text-align: center;
   color: #b8b8b8;
   font-size: 20px;

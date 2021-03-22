@@ -51,7 +51,7 @@
 }
 
 /* * --- --- ---  FORM: ADD --- --- --- */
-.form__todos {
+.form-todos {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,7 +60,7 @@
   box-shadow: 0 2px 10px rgba(139, 139, 139, 0.25);
 }
 
-.form__todos__input {
+.form-todos__input {
   border: none;
   padding: 15px;
   width: 100%;
@@ -69,12 +69,12 @@
   border-bottom: 2px solid #b8b8b8;
 }
 
-.form__todos__input:focus {
+.form-todos__input:focus {
   outline: none;
   border-bottom: 2px solid var(--blue);
 }
 
-.form__todos__btn {
+.form-todos__btn {
   position: absolute;
   bottom: 40px;
   right: 20px;
@@ -83,7 +83,7 @@
   cursor: pointer;
 }
 
-.form__todos_icon-btn {
+.form-todos__icon-btn {
   font-size: 22px;
   color: var(--green);
 }

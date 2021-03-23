@@ -5,9 +5,7 @@ import TodoList from './components/TodoList';
 import './App.css';
 
 const App = () => {
-  const [todos, changeTodos] = useState([
-    
-  ]);
+  const [todos, changeTodos] = useState([]);
 
   console.log(todos);
 
